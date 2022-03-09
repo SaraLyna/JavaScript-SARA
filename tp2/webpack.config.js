@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PRODUCTION = false;
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/scripts/main.js'),
+  entry: path.resolve(__dirname, 'src', 'scripts', 'main.js'),
 
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -25,35 +25,30 @@ module.exports = {
       },
       host : 'localhost',
       port : 9000,
-      open : {
-	  target : ['/'],
-	  app : ['firefox']
-      }      
+      open : true
   },
 
   module: {
     rules: [
+      {
+        test: /\.(m?js$|jsx)/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|jpg|gif)/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name : '[name].[ext]',
-              outputPath : 'images'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader'
+          loader: 'file-loader',
+          options: {
+            name : '[name].[ext]',
+            outputPath : 'images'
+          }
         }
       }
     ]
@@ -62,58 +57,46 @@ module.exports = {
   plugins: [
       new webpack.ProgressPlugin(),
       new HtmlWebpackPlugin({
-	       template: "./src/index.html",
-	        filename: "./index.html",
+	       template: path.resolve(__dirname,'src', 'index.html'),
+	        filename: './index.html',
 	        hash: true,
       }),
       new CopyPlugin({
-         patterns: [
-   	       {
-              from: 'src/html/*.html',
-              to:  'html/[name].html'
-               },
-             {    // gestion particulière de exemple-canvas.js
-               from: 'src/html/javascripts/exemple-canvas.js',
-               to:  'html/javascripts/exemple-canvas.js'
-             },
+          patterns: [
             {
-               from: 'src/style/*.css',
-               to:  'style/[name].css'
-             },
-            {
-              from: 'src/images/*',
-              to:  'images/[name].[ext]'
+              context: path.resolve(__dirname, 'src', 'html'),
+              from: "**/*.html",
+              to:  'html',
+              noErrorOnMissing: true,
+              globOptions: { }
             },
-
+            {
+              context: path.resolve(__dirname, 'src','images'),
+              from: '**/*',
+              to:  'images/[name][ext]',
+              noErrorOnMissing: true,
+            },
+            {
+             context: path.resolve(__dirname, 'src', 'style'),
+             from: '**/*.css',
+             to:  'style/[name][ext]',
+	           noErrorOnMissing: true,
+           },
          ]
        }),
      ],
 
-
-  /*
+  /* âs de React dans ce TP
+  // gestion de bibliothèques externes à exclure du bundle, ici cas de React
   externals : {
     react: 'React',
-    react-dom: 'ReactDom',
+    reactdom: 'ReactDom'
   },
   */
 
+
   optimization: {
-
-    minimize: false,
-    minimizer: [new TerserPlugin()],
-
-    splitChunks: {
-      cacheGroups: {
-             vendors: {
-               priority: -10,
-               test: /[\\/]node_modules[\\/]/
-             }
-           },
-
-           chunks: 'async',
-           minChunks: 1,
-           minSize: 30000,
-           name: false
-       }
+    minimize: true,
+    minimizer: [new TerserPlugin()]
   }
 }
