@@ -15,3 +15,7 @@ N'oubliez pas d'ajouter les deux membres du binôme à ce dépôt git, ainsi que
 ## ressources
 
   Ce [document](https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/html/template-app.html) présente le template de TP qui sera utilisé et proposé pour les 3 derniers TP. Prenez en connaissance.
+
+## les TP
+
+Il y a un dossier par TP. Ils contiennent les structures de base pour ces TP. Les deux premiers cmoportent en plus des éléments de code.

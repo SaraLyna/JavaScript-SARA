@@ -9,7 +9,7 @@ On utilise ici le [template de TP](https://www.fil.univ-lille.fr/~routier/enseig
 
   1. Si vous ne l'avez pas encore fait, installez <i>Node.js</i> comme indiqué dans ce [document)(https://intranet.fil.univ-lille.fr/2020/04/09/nodejs-et-npm/).  
 
-  2. Placez-vous dans le dossier `tp2/`
+  2. Dans le dossier `tp2/`, exécutez :
 ```bash  	  
 tp2$  npm install
 ```  
@@ -20,7 +20,7 @@ tp2$  npm install
 
   >  Attention, le résultat <strong>ne se consultent pas</strong> avec le fichier **`src`**`/index.html` : vous devez faire vos modifications et votre travail dans le dossier `src/` **mais** le résultat du travail est observé dans le dossier **`dist/`**.
 
-  Cependant, comme indiqué dans <a href="https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/html/template-app.html#heading2" target="new">cette section</a>, vous pouvez profiter des facilités offertes par  <i>Webpack</i> pendant la phase de développement pour reconstruire automatiquement le bundle en utilisant <code>npm run watch</code>, <strong>ou</strong> pour plus de facilités encore et visualiser les résultats <q>en direct</q>  en démarrant le serveur de développement&nbsp;:</p>
+  6. Cependant, comme indiqué dans <a href="https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/html/template-app.html#heading2" target="new">cette section</a>, vous pouvez profiter des facilités offertes par  <i>Webpack</i> pendant la phase de développement pour reconstruire automatiquement le bundle en utilisant <code>npm run watch</code>, <strong>ou</strong> pour plus de facilités encore et visualiser les résultats <q>en direct</q>  en démarrant le serveur de développement&nbsp;:</p>
 ```bash
 tp2$  npm run dev-server
 ```
