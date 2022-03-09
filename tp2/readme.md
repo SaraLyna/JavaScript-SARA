@@ -1,6 +1,6 @@
 # TP 2 : balles rebondissantes
 
-  Le [sujet du TP](https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/tdtp/exercices-javascript-balles.html)
+  Le [sujet du TP](https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/tdtp/exercices-javascript-balles.html).
 
 
 ## Mise en place du TP
@@ -14,8 +14,7 @@ tp2$  npm install
 ```  
   3. Exécutez la commande `npm run build` pour créer le dossier `./dist/` et construire un premier *bundle*
   4. Vous pouvez ouvrir le fichier `dist/index.html`, mais pour le moment le script n'est pas actif, vous allez devoir le compléter. Vous pouvez cependant vérifier que tout s'est bien déroulé en consultant la console (<kbd>Ctrl Shift K</kbd>) dans laquelle vous devez lire le message `le bundle a été généré`. Si c'est le cas, c'est que tout s'est bien déroulé.
-  5.
-  	Pendant le TP vous devrez compléter ou créer les modules JavaScript demandés.  
+  5.	Pendant le TP vous devrez compléter ou créer les modules JavaScript demandés.  
     Après chaque modification, il faut générer le <q>nouveau</q> <i>bundle</i>, toujours à l'aide de la commande <code>npm run build</code> et c'est le fichier `dist/index.html` qu'il faut consulter pour avoir le résultat
 
     >  Attention, le résultat <strong>ne se consultent pas</strong> avec le fichier <span class="fichier"><strong>src</strong>/index.html</span> : vous devez faire vos modifications et votre travail dans le dossier <span class="fichier">src/</span> mais le résultat du travail est observé dans le dossier <span class="fichier">dist/</span>.
