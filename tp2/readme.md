@@ -5,8 +5,9 @@
 
 ## Mise en place du TP
 
-  1. Si vous ne l'avez pas encore fait, installez <i>Node.js</i> comme indiqué dans ce même
-    document.  
+On utilise ici le [template de TP](https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/html/template-app.html) mis à disposition.
+
+  1. Si vous ne l'avez pas encore fait, installez <i>Node.js</i> comme indiqué dans ce [document)(https://intranet.fil.univ-lille.fr/2020/04/09/nodejs-et-npm/).  
 
   2. Placez-vous dans le dossier `tp2/`
 ```bash  	  
@@ -19,7 +20,7 @@ tp2$  npm install
 
   >  Attention, le résultat <strong>ne se consultent pas</strong> avec le fichier `src</strong>/index.html` : vous devez faire vos modifications et votre travail dans le dossier `src/` mais le résultat du travail est observé dans le dossier **`dist/`**.
 
-  Cependant, comme indiqué dans <a href="https://www.fil.univ-lille1.fr/~routier/enseignement/licence/js-s4/html/template-app.html#heading2" target="new">cette section</a>, vous pouvez profiter des facilités offertes par  <i>Webpack</i> pendant la phase de développement pour reconstruire automatiquement le bundle en utilisant <code>npm run watch</code>, <strong>ou</strong> pour plus de facilités encore et visualiser les résultats <q>en direct</q>  en démarrant le serveur de développement&nbsp;:</p>
+  Cependant, comme indiqué dans <a href="https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/html/template-app.html#heading2" target="new">cette section</a>, vous pouvez profiter des facilités offertes par  <i>Webpack</i> pendant la phase de développement pour reconstruire automatiquement le bundle en utilisant <code>npm run watch</code>, <strong>ou</strong> pour plus de facilités encore et visualiser les résultats <q>en direct</q>  en démarrant le serveur de développement&nbsp;:</p>
 ```bash
 tp2$  npm run dev-server
 ```
@@ -28,3 +29,7 @@ tp2$  npm run dev-server
   6. N'oubliez pas d'exécuter la commande <code>npm run build</code> après l'arrêt du serveur de développement pour mettre à jour le dossier `dist/`.
 
 > NB : le dossier `dist/` ne sera pas mis sur le dépôt car il peut être regénéré à partir des sources.
+
+## Votre travail
+
+Expliquez ici comment exécuter votre projet. Vous pouvez également ajouter toute précision utile sur votre travail.
