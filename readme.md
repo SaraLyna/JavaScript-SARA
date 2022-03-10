@@ -18,4 +18,4 @@ N'oubliez pas d'ajouter les deux membres du binôme à ce dépôt git, ainsi que
 
 ## les TP
 
-Il y a un dossier par TP. Ils contiennent les structures de base pour ces TP. Les deux premiers cmoportent en plus des éléments de code.
+Il y a un dossier par TP. Ils contiennent les structures de base pour ces TP. Les deux premiers comportent en plus des éléments de code.
