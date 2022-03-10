@@ -71,6 +71,13 @@ module.exports = {
               globOptions: { }
             },
             {
+              context: path.resolve(__dirname, 'src', 'html'),
+              from: "**/*.js",
+              to:  'html',
+              noErrorOnMissing: true,
+              globOptions: { }
+            },
+            {
               context: path.resolve(__dirname, 'src','images'),
               from: '**/*',
               to:  'images/[name][ext]',

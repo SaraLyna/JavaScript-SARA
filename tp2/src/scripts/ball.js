@@ -8,16 +8,16 @@ export default class Ball {
     static BALL_WIDTH = 48;
 
     draw(context) {
-	alert('vous devez coder la méthode draw() de Ball');
+	    alert('vous devez coder la méthode draw() de Ball');
     }
 
 
     /* crée l'objet Image à utiliser pour dessiner cette balle */
     createImage() {
   	const ballImg = new Image();
-	ballImg.width = Ball.BALL_WIDTH;
-	ballImg.src = ballImgSrc;
-	return ballImg;
+    	ballImg.width = Ball.BALL_WIDTH;
+    	ballImg.src = ballImgSrc;
+    	return ballImg;
     }
 
 }
