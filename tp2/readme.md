@@ -22,7 +22,7 @@ tp2$  npm install
 
   6. Cependant, comme indiqué dans <a href="https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/html/template-app.html#heading2" target="new">cette section</a>, vous pouvez profiter des facilités offertes par  <i>Webpack</i> pendant la phase de développement pour reconstruire automatiquement le bundle en utilisant <code>npm run watch</code>, <strong>ou</strong> pour plus de facilités encore et visualiser les résultats <q>en direct</q>  en démarrant le serveur de développement&nbsp;:</p>
 ```bash
-tp2$  npm run dev-server
+tp3$  npm run dev-server
 ```
   L'exécution de cette commande, active un serveur qui affiche dans votre navigateur le fichier `index.html` du TP. Ce chargeur actualise la page à chaque modification et sauvegarde de l'un des fichiers de script utilisés.
 
