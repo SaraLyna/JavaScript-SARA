@@ -14,3 +14,6 @@ const bootstrapReact =
 
 
 window.addEventListener('DOMContentLoaded', bootstrapReact );
+
+
+console.log('le bundle a été généré !');
