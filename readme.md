@@ -19,3 +19,11 @@ N'oubliez pas d'ajouter les deux membres du binôme à ce dépôt git, ainsi que
 ## les TP
 
 Il y a un dossier par TP. Ils contiennent les structures de base pour ces TP. Certains comportent des fichiers utiles au travail demandé.
+
+### <code>Node.js</code>
+
+Pour les TP, vous devez avoir installé <i>Node.js</i>.
+
+Pour votre compte TP au M5, vous devez procéder comme indiqué dans ce [document](https://intranet.fil.univ-lille.fr/2020/04/09/nodejs-et-npm/).
+
+Pour votre ordinateur personnel, vous pourrez trouver la version de <code>Node.js</code> qui convient [ici](https://nodejs.org/en/download/).
