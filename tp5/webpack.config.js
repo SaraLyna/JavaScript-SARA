@@ -80,8 +80,15 @@ module.exports = {
              context: path.resolve(__dirname, 'src', 'style'),
              from: '**/*.css',
              to:  'style/[name][ext]',
-	           noErrorOnMissing: true,
+	     noErrorOnMissing: true,
            },
+           {
+             context: path.resolve(__dirname, "vendor"),
+             from: "**/*.js",
+             globOptions: { },
+             noErrorOnMissing: true,
+             to:  'vendor'
+           }
          ]
        }),
      ],
