@@ -13,8 +13,9 @@ N'oubliez pas d'ajouter les deux membres du binôme à ce dépôt git, ainsi que
  - nom2 prénom2
 
 ## ressources
-
-  Ce [document](https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/html/template-app.html) présente le template de TP qui sera utilisé et proposé pour les 3 derniers TP. Prenez en connaissance.
+ - Les [sujets de TP](https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/tdtp/) et le [semainier](https://portail.fil.univ-lille1.fr/portail/index.php?dipl=L&sem=S4&ue=JS&label=Semainier) de l'UE.
+ - Ce [document](https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/html/template-app.html) présente le template de TP qui sera utilisé (sauf pour le premier TP). Prenez en connaissance.
+ -  Il est certainement utile, voire indispensable, d'apprendre à utiliser le debugger de Firefox, voici une [très rapide vidéo d'introduction au debugger de Firefox](https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/videos/debugger.m4v)
 
 ## les TP
 
