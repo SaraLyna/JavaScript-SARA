@@ -64,12 +64,6 @@ console.log(` *** EXERCICE 5 *** `);
 /********** EXERCICE 6 ***********************/
 console.log(` *** EXERCICE 6 *** `);
 
-
-/*********************************************/
-
-/********** EXERCICE 7 ***********************/
-console.log(` *** EXERCICE 7 *** `);
-
 const lesInvites = ['Tim Oleon', 'Timo Leon', 'Bilbo', 'Frodo', 'Sam', 'Merry', 'Pippin']
 const lesReponses = [
                   {nom : 'Sam', present : 'oui'},
@@ -78,6 +72,11 @@ const lesReponses = [
                   {nom : 'Frodo', present : 'oui'},
                   {nom : 'Timo Leon', present : 'non'},
                  ];
+
+/*********************************************/
+
+/********** EXERCICE 7 ***********************/
+console.log(` *** EXERCICE 7 *** `);
 
 /*********************************************/
 
