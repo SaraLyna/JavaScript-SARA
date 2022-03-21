@@ -18,6 +18,7 @@ console.log(' *** QUESTION 3 ***');
 
 
 /****  QUESTION 4 *****/
+console.log(' *** QUESTION 4 ***');
 const dixpluspeuples = [];
 
 console.log(`10 plus peuplés : ${dixpluspeuples}`);
@@ -25,13 +26,13 @@ console.log(`10 plus peuplés : ${dixpluspeuples}`);
 
 
 /****  QUESTION 5 *****/
-
+console.log(' *** QUESTION 5 ***');
 
 /***********************/
 
 
 /****  QUESTION 6 *****/
-
+console.log(' *** QUESTION 6 ***');
 
 
 /***********************/
