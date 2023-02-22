@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 // import ReactJs components
 import App from '../components/app.jsx';
@@ -6,14 +6,17 @@ import App from '../components/app.jsx';
 /*
 * create React root element and insert it into document
 */
+
 const bootstrapReact =
-  () => ReactDOM.render(
-            <App />,
-            document.getElementById('insertReactHere')
-        );
+   () => {
+      const root = createRoot(document.getElementById('insertReactHere'));
+      root.render(
+         <App />
+      );
+   }
 
+//window.addEventListener('DOMContentLoaded', bootstrapReact );
 
-window.addEventListener('DOMContentLoaded', bootstrapReact );
-
+bootstrapReact();
 
 console.log('le bundle a été généré !');
