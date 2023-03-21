@@ -2,9 +2,9 @@
 
 Vous devez **forker** ce projet dans votre espace de travail Gitlab (bouton `Fork`) (revoir si besoin la vidéo de l'UE projet sur le [portail](https://www.fil.univ-lille1.fr/portail/index.php?dipl=L&sem=S4&ue=Projet&label=Documents).  
 
-Le fork doit être *individuel*
+Le fork doit être **individuel**
 
-*N'oubliez pas d'ajouter ensuite l'enseignant avec le niveau d'accès "Developper"*
+**N'oubliez pas d'ajouter ensuite l'enseignant avec le niveau d'accès "Developper"**
 
 ## ressources
  - Les [sujets de TP](https://www.fil.univ-lille.fr/~routier/enseignement/licence/js-s4/tdtp/) et le [semainier](https://portail.fil.univ-lille1.fr/portail/index.php?dipl=L&sem=S4&ue=JS&label=Semainier) de l'UE.
