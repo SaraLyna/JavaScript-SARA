@@ -78,14 +78,12 @@ console.log(multiples5(numbers));
 
 
 /* Question 4: */
-let multiplesFactory=(factor) => {
-  multiples=l =>{
-    return l.map(v => factor*v);
-  }
-}
+let multiplesFactory= factor => l => multiples(factor, l);
+console.log(multiplesFactory(3)(numbers));
+
 const multiples100 = multiplesFactory(100);
-typeof(multiples100);
-multiples100(numbers);
+console.log(typeof(multiples100));
+console.log(multiples100(numbers));
 
 /********** EXERCICE 3 ***********************/
 console.log(` *** EXERCICE 3 *** `);
