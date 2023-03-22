@@ -41,12 +41,19 @@ console.log(deux);
 
 /* Question 3: */
 persons.forEach(personne =>console.log(`${personne.name} a ${personne.age} ans `));
-
-
+const s= v => console.log(`${v.name} a ${v.age} ans`);
 
 /* Question 4: */
-
+const myForEach= (liste,callback) => {
+  for(let i in liste){
+    callback(liste[i],i)
+  }
+};
 /* Question 5: */
+const personne=(personne =>console.log(`${personne.name} a ${personne.age} ans `));
+const nombre= (elt => console.log(elt));
+myForEach(numbers,nombre);
+myForEach(persons, personne);
 
 
 /********** EXERCICE 2 ***********************/
@@ -54,7 +61,31 @@ console.log(` *** EXERCICE 2 *** `);
 
 
 /*********************************************/
+/* Question 1: */
+console.log(numbers.map(elt => elt* 10));
 
+/* Question 2: */
+const multiples=(n,l) => {
+  return l.map(val => n*val );
+}
+console.log(multiples(6,numbers));
+/* Question 3: */
+const multiples5=(l)=> multiples(5,l);
+/*const multiples5=(l)=> {
+  return multiple(5,l);
+}*/
+console.log(multiples5(numbers));
+
+
+/* Question 4: */
+let multiplesFactory=(factor) => {
+  multiples=l =>{
+    return l.map(v => factor*v);
+  }
+}
+const multiples100 = multiplesFactory(100);
+typeof(multiples100);
+multiples100(numbers);
 
 /********** EXERCICE 3 ***********************/
 console.log(` *** EXERCICE 3 *** `);
