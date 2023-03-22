@@ -90,6 +90,19 @@ console.log(` *** EXERCICE 3 *** `);
 
 
 /*********************************************/
+/* Question 1: */
+let capitalize=(a) => {
+  const b=a[0].toUpperCase();
+  const c=a.substring(1);
+  return `${b}${c}`;
+}
+console.log(capitalize('timoleon'));
+console.log(capitalize('sara'));
+/* Question 2: */
+/* Question 3: */
+/* Question 4: */
+/* Question 5: */
+/* Question 6: */
 
 
 /********** EXERCICE 4 ***********************/
