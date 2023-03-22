@@ -31,8 +31,22 @@ console.log(`example2(numbers, 5) : ${example2(numbers, 5)}`);
 console.log(` *** EXERCICE 1 *** `);
 const persons = [ {name : 'timoleon', age : 12 }, {name : 'bilbo', age : 111 }, {name : 'frodo', age : 33 }];
 
-
 /*********************************************/
+/* Question 1: */
+numbers.forEach(elt => console.log(elt));
+
+/* Question 2: */
+const deux= persons[1].name;
+console.log(deux);
+
+/* Question 3: */
+persons.forEach(personne =>console.log(`${personne.name} a ${personne.age} ans `));
+
+
+
+/* Question 4: */
+
+/* Question 5: */
 
 
 /********** EXERCICE 2 ***********************/
