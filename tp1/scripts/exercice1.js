@@ -91,18 +91,38 @@ console.log(` *** EXERCICE 3 *** `);
 
 /*********************************************/
 /* Question 1: */
-let capitalize=(a) => {
+let capitalize=a => {
   const b=a[0].toUpperCase();
   const c=a.substring(1);
   return `${b}${c}`;
 }
 console.log(capitalize('timoleon'));
 console.log(capitalize('sara'));
+
 /* Question 2: */
+console.log(persons.map( obj =>capitalize(obj.name) ));
+
 /* Question 3: */
+const myMap=(liste,callback) => {
+  const res=[];
+  for(let i in liste){
+    res.push(callback(liste[i],i,liste))
+  }
+  return res;
+}
+
 /* Question 4: */
+console.log(myMap(persons,obj =>capitalize(obj.name)));
+
 /* Question 5: */
+function myMap2(liste,callback){
+  const res=[];
+  liste.forEach((item, i) =>res.push(callback(item,i,liste)));
+  return res;
+}
+
 /* Question 6: */
+console.log(myMap2(persons,obj =>capitalize(obj.name)));
 
 
 /********** EXERCICE 4 ***********************/
@@ -110,6 +130,11 @@ console.log(` *** EXERCICE 4 *** `);
 
 
 /*********************************************/
+/* Question 1: */
+const inferieurs5 = numbers.filter( elt => elt < 5 );
+console.log(inferieurs5);
+/* Question 2: */
+/* Question 3: */
 
 /********** EXERCICE 5 ***********************/
 console.log(` *** EXERCICE 5 *** `);
