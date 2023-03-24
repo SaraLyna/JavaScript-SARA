@@ -134,13 +134,71 @@ console.log(` *** EXERCICE 4 *** `);
 const inferieurs5 = numbers.filter( elt => elt < 5 );
 console.log(inferieurs5);
 /* Question 2: */
+/**
+La méthode split() de String permet de diviser une chaîne de caractères en un tableau
+ de sous-chaînes, en utilisant un séparateur spécifié.
+ Elle prend un seul argument, qui est le séparateur.
+ */
+ /**
+La méthode join() de Array permet de concaténer les éléments d'un tableau en une chaîne de caractères,
+en utilisant un séparateur spécifié. Elle prend un seul argument, qui est le séparateur.
+ */
 /* Question 3: */
+function createAcronym(phrase){
+  let acronym = phrase.split(' ').filter(word => word.length > 3).map(word => word[0].toUpperCase()).join('');
+  return acronym;
+}
+console.log(createAcronym('formations en informatique de lille'));
+console.log(createAcronym('société nationale des chemins de fer français'));
 
 /********** EXERCICE 5 ***********************/
 console.log(` *** EXERCICE 5 *** `);
 
 
 /*********************************************/
+/* Question 1: */
+function nbLetters(phrase) {
+  let count = phrase.split(' ').reduce((acc, word) => acc + word.length, 0);
+  return count;
+}
+const FIL = "Formations en Informatique de Lille";
+console.log(nbLetters(FIL));
+
+/* Question 2: */
+function max(a, b) {
+  return a > b ? a : b;
+}
+function maxNumber(numbers) {
+  return numbers.reduce(max);
+}
+console.log(maxNumber(numbers));
+
+/* Question 3: */
+function maxNumber2(numbers) {
+  return Math.max(...numbers);
+}
+console.log(maxNumber2(numbers));
+
+/* Question 4: */
+function sum(...numbers) {
+  return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+console.log(sum());
+console.log(sum(1,2));
+console.log(sum(1,2,3,4,5));
+console.log(sum(...numbers));
+
+/* Question 5: */
+function myReduce(liste, func, initVal) {
+  let acc = initVal;
+  for (let i in liste) {
+    acc = func(acc, liste[i]);
+  }
+  return acc;
+}
+
+/* Question 6: */
+console.log(myReduce(numbers,sum,0));
 
 /********** EXERCICE 6 ***********************/
 console.log(` *** EXERCICE 6 *** `);
@@ -155,11 +213,29 @@ const lesReponses = [
                  ];
 
 /*********************************************/
+/* Question 1: */
+function participants(lesInvites, lesReponses) {
+  let sansRep = lesInvites.filter(invite => {
+    return !lesReponses.find(reponse => reponse.nom === invite);
+  }).map(invite => invite);
+
+  const invitesPresents = lesReponses.filter(reponse => {
+    return reponse.present === 'oui';
+  }).map(reponse => reponse.nom);
+
+  return sansRep.concat(invitesPresents);
+}
+console.log(participants(lesInvites, lesReponses));
 
 /********** EXERCICE 7 ***********************/
 console.log(` *** EXERCICE 7 *** `);
 
 /*********************************************/
+/* Question 1: */
+/* Question 2: */
+/* Question 3: */
+/* Question 4: */
+/* Question 5: */
 
 /********** EXERCICE 8 ***********************/
 console.log(` *** EXERCICE 8 *** `);
@@ -167,3 +243,5 @@ console.log(` *** EXERCICE 8 *** `);
 
 
 /*********************************************/
+/* Question 1: */
+/* Question 2: */
