@@ -16,6 +16,13 @@ const init = () => {
   const filtre = document.getElementById('filtre');
   filtre.value = '';
   filtre.addEventListener('keyup', filtreImages);
+  const mur = document.getElementById('mur');
+ const images = dataImages.map(createImage);
+
+ images.forEach((img) => {
+   img.addEventListener('mouseover', details);
+   mur.appendChild(img);
+ });
 }
 
 window.addEventListener('DOMContentLoaded', init);
@@ -49,5 +56,18 @@ const details = event => {
 *   On ne s'occupe pas de la casse des caractères (minuscules ou majuscules) lors du filtrage.
 */
 const filtreImages = event => {
+  const filtre = document.getElementById('filtre');
+ const mur = document.getElementById('mur');
+ const images = mur.querySelectorAll('img');
+
+ images.forEach((img) => {
+   const titre = img.getAttribute('title').toLowerCase();
+   const filtreTexte = filtre.value.toLowerCase();
+   if (titre.includes(filtreTexte)) {
+     img.style.display = 'inline';
+   } else {
+     img.style.display = 'none';
+   }
+ });
 
 }

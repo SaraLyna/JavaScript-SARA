@@ -232,10 +232,40 @@ console.log(` *** EXERCICE 7 *** `);
 
 /*********************************************/
 /* Question 1: */
+function mySome(liste, callback) {
+  for (let i in liste) {
+    if (callback(liste[i], i, liste)) {
+      return true;
+    }
+  }
+  return false;
+}
 /* Question 2: */
+const pair=mySome(numbers, (num) => num % 2 === 0);
+console.log(pair);
+const negatif= mySome(numbers, (num) => num < 0);
+console.log(negatif);
+
 /* Question 3: */
+function myEvery(liste, callback) {
+  for (let i in liste) {
+    if (!callback(liste[i], i, liste)) {
+      return false;
+    }
+  }
+  return true;
+}
 /* Question 4: */
+const allPairs= myEvery(numbers, (num) => num % 2 === 0);
+console.log(allPairs);
+const allPositifs = myEvery(numbers, (num) => num > 0);
+console.log(allPositifs);
 /* Question 5: */
+function isSubArray(subTab, tab) {
+  return subTab.every((elt) => tab.includes(elt));
+}
+console.log(isSubArray(numbers, [1, 10, 2, 7, 4, 6, 3, 5, 8]));
+console.log(isSubArray(numbers, [1, 2, 7, 4, 6, 3, 8]));
 
 /********** EXERCICE 8 ***********************/
 console.log(` *** EXERCICE 8 *** `);
@@ -244,4 +274,18 @@ console.log(` *** EXERCICE 8 *** `);
 
 /*********************************************/
 /* Question 1: */
+function nbOccurrences(word) {
+  return [...word].reduce((map, c) => {
+    map.set(c, (map.get(c) || 0) + 1);
+    return map;
+  }, new Map());
+}
 /* Question 2: */
+const word = 'abracadabra';
+const occurrences =nbOccurrences(word);
+
+console.log(occurrences);
+
+for (const [c, count] of occurrences.entries()) {
+  console.log(`${c} -> ${count} `);
+}
