@@ -180,7 +180,7 @@ function maxNumber2(numbers) {
 console.log(maxNumber2(numbers));
 
 /* Question 4: */
-function sum(...numbers) {
+let sum= (...numbers) => {
   return numbers.reduce((acc, curr) => acc + curr, 0);
 }
 console.log(sum());
@@ -189,7 +189,7 @@ console.log(sum(1,2,3,4,5));
 console.log(sum(...numbers));
 
 /* Question 5: */
-function myReduce(liste, func, initVal) {
+const myReduce = (liste, func, initVal) => {
   let acc = initVal;
   for (let i in liste) {
     acc = func(acc, liste[i]);
@@ -232,7 +232,7 @@ console.log(` *** EXERCICE 7 *** `);
 
 /*********************************************/
 /* Question 1: */
-function mySome(liste, callback) {
+const mySome = (liste, callback) => {
   for (let i in liste) {
     if (callback(liste[i], i, liste)) {
       return true;
@@ -247,7 +247,7 @@ const negatif= mySome(numbers, (num) => num < 0);
 console.log(negatif);
 
 /* Question 3: */
-function myEvery(liste, callback) {
+const myEvery= (liste, callback) => {
   for (let i in liste) {
     if (!callback(liste[i], i, liste)) {
       return false;
@@ -261,7 +261,7 @@ console.log(allPairs);
 const allPositifs = myEvery(numbers, (num) => num > 0);
 console.log(allPositifs);
 /* Question 5: */
-function isSubArray(subTab, tab) {
+let isSubArray= (subTab, tab) => {
   return subTab.every((elt) => tab.includes(elt));
 }
 console.log(isSubArray(numbers, [1, 10, 2, 7, 4, 6, 3, 5, 8]));
@@ -274,14 +274,14 @@ console.log(` *** EXERCICE 8 *** `);
 
 /*********************************************/
 /* Question 1: */
-function nbOccurrences(word) {
+let nbOccurrences= word =>{
   return [...word].reduce((map, c) => {
     map.set(c, (map.get(c) || 0) + 1);
     return map;
   }, new Map());
 }
 /* Question 2: */
-const word = 'abracadabra';
+const word = 'sarrralynnaaa';
 const occurrences =nbOccurrences(word);
 
 console.log(occurrences);
