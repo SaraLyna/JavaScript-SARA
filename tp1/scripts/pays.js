@@ -1,7 +1,8 @@
 const numberFormatter = new Intl.NumberFormat();
 
 dataPays.forEach( pays => pays.toString = function() { return `${this.nom} : ${this.population} hab., ${this.superficie}km², ${this.PIB} milliardsUS$` } );
-// l'effet de cette ligne : remplace la méthode toString() par une nouvelle fonction qui retourne une chaîne de caractères représentant les informations du pays sous la forme d'une phrase formatée.
+// l'effet de cette ligne : remplace la méthode toString() par une nouvelle fonction qui retourne une chaîne de caractères représentant les informations
+//du pays sous la forme d'une phrase formatée.
 for (let i = 0; i < 5; i++) {
   console.log(dataPays[i].toString());
 }
@@ -12,8 +13,9 @@ const populationTotale = -1;
 
 console.log(`population totale : ${numberFormatter.format(populationTotale)}`);
 /***********************/
+const populationCumulee = dataPays.reduce((acc, territoire) => acc + territoire.population, 0);
 
-
+console.log(`La population cumulée de tous les territoires est : ` + populationCumulee);
 /****  QUESTION 3 *****/
 console.log(' *** QUESTION 3 ***');
 
