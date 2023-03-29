@@ -55,4 +55,15 @@ export default class Ball {
     return this.image.height;
   }
 
+/*
+	collisionWith(obstacle){
+		if(){
+			return true;
+		}
+		else{
+			return false;
+		}
+*/
+
+
 }

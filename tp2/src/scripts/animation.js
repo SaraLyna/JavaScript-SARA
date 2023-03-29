@@ -9,9 +9,6 @@ export default class Animation {
     // this.ball = new Ball(canvas.width/2, canvas.height/2,20);
     this.balls=[];
     this.animationRequest = null;
-
-
-
   }
 /* animate the ball */
   animate() {
