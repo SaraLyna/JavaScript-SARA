@@ -11,10 +11,14 @@ export default class Animation {
   }
 
   animate() {
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.ball.move();
-    this.ball.draw(this.context);
     this.animationRequest = requestAnimationFrame(this.animate.bind(this));
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ball.move(this.canvas);
+    this.ball.draw(this.context);
+
+
+
+
   }
 
   /* start the animation or stop it if previously running */

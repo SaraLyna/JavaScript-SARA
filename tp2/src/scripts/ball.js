@@ -22,11 +22,10 @@ export default class Ball {
 		context.drawImage(this.image, this.x, this.y, Ball.BALL_WIDTH, Ball.BALL_HEIGHT);
   }
   /* la méthode move() */
-	move(canvas) {
+	 move (canvas){
 	 let X = this.x + this.deltaX;
 	 let Y = this.y + this.deltaY;
-
-	 if (X < 0 || X + Ball.BALL_WIDTH > canvas.width) {
+	 if (X < 0 || X + Ball.BALL_WIDTH > canvas.width ){
 		 this.deltaX = -this.deltaX;
 	 }
 	 if (Y < 0 || Y + Ball.BALL_HEIGHT > canvas.height) {
@@ -35,10 +34,12 @@ export default class Ball {
 	 this.x += this.deltaX;
 	 this.y += this.deltaY;
   }
-
   /* crée l'objet Image à utiliser pour dessiner cette balle */
   #createImage(imageSource) {
 	  const newImg = new Image();
+		newImg.width=Ball.BALL_WIDTH;
+		newImg.height=Ball.BALL_HEIGHT;
+
   	newImg.src = imageSource;
   	return newImg;
   }
