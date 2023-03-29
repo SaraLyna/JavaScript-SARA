@@ -17,6 +17,7 @@ const init = () => {
   const animation = new Animation(canvas);
   document.getElementById("stopStartBall").addEventListener("click", () => animation.startAndStop()  );
 
+  document.getElementById("addBall").addEventListener("click", () => animation.addBall()  );
 }
 
 window.addEventListener("DOMContentLoaded",init);
