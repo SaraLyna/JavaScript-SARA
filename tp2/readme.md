@@ -33,5 +33,21 @@ tp3$  npm run dev-server
 > NB : le dossier `dist/` ne sera pas mis sur le dépôt car il peut être regénéré à partir des sources.
 
 ## Votre travail
+## Exercice 1:
+implementation du constructeur de la classe Ball
+et des méthodes draw() et move()
 
-Expliquez ici comment exécuter votre projet. Vous pouvez également ajouter toute précision utile sur votre travail.
+ensuite, implementation du constructeur de la classe Animation,
+ainsi que la méthode animate() et startAndStop(),
+
+enfin, affichage final de la balle en mouvement.
+
+
+## Exercice 2:
+
+
+## Exercice 3:
+
+## Exercice 4:
+
+

@@ -18,17 +18,20 @@ export default class Ball {
 
   /* draw this ball, using the given drawing 2d context */
   draw(context) {
-  //  alert('vous devez coder la méthode draw() de Ball');
-		context.drawImage(this.image, this.x, this.y, Ball.BALL_WIDTH, Ball.BALL_HEIGHT);
+		this.largeur = Ball.BALL_WIDTH;
+		this.longueur = Ball.BALL_HEIGHT;
+		context.drawImage(this.image, this.x, this.y, this.largeur, this.longueur);
   }
   /* la méthode move() */
 	 move (canvas){
-	 let X = this.x + this.deltaX;
-	 let Y = this.y + this.deltaY;
-	 if (X < 0 || X + Ball.BALL_WIDTH > canvas.width ){
+	 this.largeur = Ball.BALL_WIDTH;
+ 	 this.longueur = Ball.BALL_HEIGHT;
+	 let x = this.x + this.deltaX;
+	 let y = this.y + this.deltaY;
+	 if (x < 0 || x + this.largeur > canvas.width ){
 		 this.deltaX = -this.deltaX;
 	 }
-	 if (Y < 0 || Y + Ball.BALL_HEIGHT > canvas.height) {
+	 if (y < 0 || y + this.longueur > canvas.height) {
 		 this.deltaY = -this.deltaY;
 	 }
 	 this.x += this.deltaX;
@@ -36,9 +39,11 @@ export default class Ball {
   }
   /* crée l'objet Image à utiliser pour dessiner cette balle */
   #createImage(imageSource) {
+		this.largeur = Ball.BALL_WIDTH;
+  	this.longueur = Ball.BALL_HEIGHT;
 	  const newImg = new Image();
-		newImg.width=Ball.BALL_WIDTH;
-		newImg.height=Ball.BALL_HEIGHT;
+		newImg.width=this.largeur;
+		newImg.height=this.longueur;
 
   	newImg.src = imageSource;
   	return newImg;
