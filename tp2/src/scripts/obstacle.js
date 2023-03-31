@@ -2,8 +2,12 @@
 /* TYPE Obstacle */
 export default class Obstacle {
   /* constructor of the class */
-  constructor(x,y,canvas) {
+  constructor(x,y) {
     this.x = x;
     this.y = y;
-    this.canvas = canvas;
+  }
+  draw(context){
+    context.fillRect(this.x,this.y,context.width,context.height);
+
+
   }
