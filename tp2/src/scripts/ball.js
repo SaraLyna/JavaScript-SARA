@@ -8,12 +8,13 @@ export default class Ball {
 	static BALL_WIDTH = 48;
 	static BALL_HEIGHT= 48;
 
-  constructor(x, y, deltaX = 3, deltaY = -2) {
+  constructor(x, y, deltaX = 3, deltaY = -2, radius) {
 		this.x = x;
     this.y = y;
     this.deltaX = deltaX;
     this.deltaY = deltaY;
     this.image = this.#createImage(ballImgSrc);
+		this.radius = radius;
   }
 
   /* draw this ball, using the given drawing 2d context */
@@ -55,15 +56,24 @@ export default class Ball {
     return this.image.height;
   }
 
-/*
 	collisionWith(obstacle){
-		if(){
-			return true;
-		}
-		else{
-			return false;
-		}
-*/
+	 const ballLeft = this.x - this.radius;
+	 const ballRight = this.x + this.radius;
+	 const ballTop = this.y - this.radius;
+	 const ballBottom = this.y + this.radius;
+
+	 const obsLeft = obstacle.x;
+	 const obsRight = obstacle.x + obstacle.width;
+	 const obsTop = obstacle.y;
+	 const obsBottom = obstacle.y + obstacle.height;
+
+	 const p1x = Math.max(ballLeft, obsLeft);
+	 const p1y = Math.max(ballTop, obsTop);
+	 const p2x = Math.min(ballRight, obsRight);
+	 const p2y = Math.min(ballBottom, obsBottom);
+	 
+    return p1x < p2x && p1y < p2y;
+  }
 
 
 }

@@ -1,6 +1,7 @@
 
 import Ball from './ball';           // peut être commenté après la Ex1 Q2 faite
 import Animation from './animation';
+import Obstacle from './obstacle.js';
 
 import './assets/style/style-balles.css';
 
@@ -14,10 +15,15 @@ const init = () => {
   // document.getElementById("stopStartBall").addEventListener("click", () => ball.draw(canvas.getContext('2d'))  );
 
   // décommenter les deux lignes suivantes à partir la question Ex1 Q4
-  const animation = new Animation(canvas);
+  const animation = new AnimationWithObstacle(canvas);
+
+  const obstacle = new Obstacle(50, 50, 100, 50);
+  obstacle.draw(contexte);
+
   document.getElementById("stopStartBall").addEventListener("click", () => animation.startAndStop()  );
 
   document.getElementById("addBall").addEventListener("click", () => animation.addBall()  );
+
 }
 
 window.addEventListener("DOMContentLoaded",init);
