@@ -1,9 +1,10 @@
 /* TYPE Obstacle */
 export default class Obstacle {
   /* constructor of the class */
-  constructor(x,y) {
+  constructor(x,y, obstacle) {
     this.x = x;
     this.y = y;
+    this.obstacle= obstacle;
   }
   draw(context){
     context.fillStyle = 'black';
