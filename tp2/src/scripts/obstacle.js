@@ -1,14 +1,12 @@
 /* TYPE Obstacle */
 export default class Obstacle {
   /* constructor of the class */
-  constructor(x,y, width, height) {
+  constructor(x,y) {
     this.x = x;
     this.y = y;
-    this.width = width;
-    this.height = height;
   }
-  draw(contexte){
-    contexte.fillStyle = 'black';
-    contexte.fillRect(this.x, this.y, this.width, this.height);
+  draw(context){
+    context.fillStyle = 'black';
+    context.fillRect(this.x, this.y, context.width, context.height);
   }
 }

@@ -49,30 +49,24 @@ export default class Ball {
   	newImg.src = imageSource;
   	return newImg;
   }
-  get width() {
+  getwidth() {
     return this.image.width;
   }
-  get height() {
+  getheight() {
     return this.image.height;
   }
 
 	collisionWith(obstacle){
-	 const ballLeft = this.x - this.radius;
-	 const ballRight = this.x + this.radius;
-	 const ballTop = this.y - this.radius;
-	 const ballBottom = this.y + this.radius;
+		  let p1x= Math.max(this.x,obstacle.x);
+      let p1y=Math.max(this.y,obstacle.y);
+      let x1 = this.x + this.getwidth();
+      let y1 = this.y + this.getheight();
+      let x2 = obstacle.x + this.getwidth();
+      let y2 = obstacle.y + this.getheight();
+      let p2x= Math.min(x1,x2);
+      let p2y=Math.min(y1,y2);
 
-	 const obsLeft = obstacle.x;
-	 const obsRight = obstacle.x + obstacle.width;
-	 const obsTop = obstacle.y;
-	 const obsBottom = obstacle.y + obstacle.height;
-
-	 const p1x = Math.max(ballLeft, obsLeft);
-	 const p1y = Math.max(ballTop, obsTop);
-	 const p2x = Math.min(ballRight, obsRight);
-	 const p2y = Math.min(ballBottom, obsBottom);
-	 
-    return p1x < p2x && p1y < p2y;
+		  return p1x < p2x && p1y < p2y;
   }
 
 

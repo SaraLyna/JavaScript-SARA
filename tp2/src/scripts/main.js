@@ -1,5 +1,5 @@
 
-import Ball from './ball';           // peut être commenté après la Ex1 Q2 faite
+//import Ball from './ball';           // peut être commenté après la Ex1 Q2 faite
 import Animation from './animation';
 import Obstacle from './obstacle';
 import AnimationWithObstacle from './AnimationWithObstacle';
@@ -18,7 +18,7 @@ const init = () => {
   // décommenter les deux lignes suivantes à partir la question Ex1 Q4
   const animation = new AnimationWithObstacle(canvas, obstacle);
 
-  const obstacle = new Obstacle(50, 50, 100, 50);
+  const obstacle = new Obstacle(canvas.width, canvas.height);
 
   document.getElementById("stopStartBall").addEventListener("click", () => animation.startAndStop()  );
 
