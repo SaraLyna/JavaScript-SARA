@@ -5,7 +5,7 @@ export default class Animation {
   /* constructor of the class */
   constructor(canvas) {
     this.canvas = canvas;
-    this.context = canvas.getContext('2d');
+    this.contexte = canvas.getContext('2d');
     // this.ball = new Ball(canvas.width/2, canvas.height/2,20);
     this.balls=[];
     this.animationRequest = null;
@@ -13,10 +13,10 @@ export default class Animation {
 /* animate the ball */
   animate() {
     this.animationRequest = requestAnimationFrame(this.animate.bind(this));
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.contexte.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.balls.forEach(ball => {
       ball.move(this.canvas);
-      ball.draw(this.context);
+      ball.draw(this.contexte);
     });
   }
 
