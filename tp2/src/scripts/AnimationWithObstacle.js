@@ -10,10 +10,11 @@ export default class AnimationWithObstacle extends Animation {
   }
 
    animate(){
-     this.ball.filter(elt=> !elt.collisionWith(this.obstacle)).forEach((elt,i) => elt.move(this.context) );
-     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-     this.ball.forEach(elt => elt.draw(this.context) );
-     this.obstacle.draw(this.context);
+     this.ball.filter(elt=> !elt.collisionWith(this.obstacle)).forEach((elt,i) =>
+     elt.move(this.contexte) );
+     this.contexte.clearRect(0, 0, this.canvas.width, this.canvas.height);
+     this.ball.forEach(elt => elt.draw(this.contexte) );
+     this.obstacle.draw(this.contexte);
      this.animationRequest = requestAnimationFrame(this.animate.bind(this));
    }
 }
