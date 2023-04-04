@@ -1,7 +1,8 @@
 
-import Ball from './ball';           // peut être commenté après la Ex1 Q2 faite
+//import Ball from './ball';           // peut être commenté après la Ex1 Q2 faite
 import Animation from './animation';
-import Obstacle from './obstacle.js';
+import Obstacle from './obstacle';
+import AnimationWithObstacle from './AnimationWithObstacle';
 
 import './assets/style/style-balles.css';
 
