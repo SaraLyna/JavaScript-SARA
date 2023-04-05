@@ -24,8 +24,14 @@ export default class Game {
    }
 
    animate() {
-     //this.animationRequest = requestAnimationFrame(this.animate.bind(this));
      this.#context.clearRect(0, 0, this.#canvas.WIDTH, this.#canvas.WIDTH);
      this.#context.fillRect(this.#arc.x, this.#arc.y, this.#arc.WIDTH, this.#arc.WIDTH);
+     this.#arc.forEach(arc => {
+      arc.move(this.canvas);
+      arc.draw(this.context);
+    });
+    this.animationRequest = requestAnimationFrame(this.animate.bind(this));
+
+
    }
 }
