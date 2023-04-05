@@ -7,6 +7,8 @@ import Game from './game.js';
 const init = () => {
    const canvas = document.getElementById("playfield");
    const game = new Game(canvas);
+
+   document.getElementById("game").addEventListener("click", () => game.animate()  );
 }
 
 window.addEventListener("load", init);
