@@ -1,5 +1,5 @@
 
-//import Ball from './ball';           // peut être commenté après la Ex1 Q2 faite
+import Ball from './ball';           // peut être commenté après la Ex1 Q2 faite
 import Animation from './animation';
 import Obstacle from './obstacle';
 import AnimationWithObstacle from './AnimationWithObstacle';
@@ -18,10 +18,11 @@ const init = () => {
   // décommenter les deux lignes suivantes à partir la question Ex1 Q4
   const animation = new AnimationWithObstacle(canvas, obstacle);
 
-  const obstacle = new Obstacle(canvas.width, canvas.height);
+  const obstacle = new Obstacle(5,3,50,40);
 
+  window.addEventListener('keydown', animation.keyDownActionHandler.bind(animation));
+  window.addEventListener('keyup', animation.keyUpActionHandler.bind(animation));
   document.getElementById("stopStartBall").addEventListener("click", () => animation.startAndStop()  );
-
   document.getElementById("addBall").addEventListener("click", () => animation.addBall()  );
 
 }

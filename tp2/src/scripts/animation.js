@@ -5,19 +5,19 @@ export default class Animation {
   /* constructor of the class */
   constructor(canvas) {
     this.canvas = canvas;
-    this.context = canvas.getContext('2d');
+    this.context = this.canvas.getContext('2d');
     // this.ball = new Ball(canvas.width/2, canvas.height/2,20);
-    this.ball=[];
+    this.balls=[];
     this.animationRequest = null;
   }
 /* animate the ball */
   animate() {
-    this.animationRequest = requestAnimationFrame(this.animate.bind(this));
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.ball.forEach(ball => {
+    this.balls.forEach(ball => {
       ball.move(this.canvas);
       ball.draw(this.context);
     });
+    this.animationRequest = requestAnimationFrame(this.animate.bind(this));
   }
 
 
@@ -28,13 +28,13 @@ export default class Animation {
     const y=alea(this.canvas.height);
     const deltaX= alea(11) - 3;
     const deltaY= alea(11) -3;
-    this.ball.push(new Ball(x,y, deltaX, deltaY));
+    this.balls.push(new Ball(x,y, deltaX, deltaY));
   }
 
   /* start the animation or stop it if previously running */
   startAndStop() {
     if (this.animationRequest) {
-      window.cancelAnimationFrame(this.animationRequest);
+      cancelAnimationFrame(this.animationRequest);
       this.animationRequest = null;
     } else {
       this.animationRequest = window.requestAnimationFrame(this.animate.bind(this));

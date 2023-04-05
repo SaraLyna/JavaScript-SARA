@@ -2,6 +2,7 @@
 // la source de l'image à utiliser pour la balle
 import ballImgSrc from './assets/images/ball.png';
 
+import Obstacle from './obstacle';
 /* TYPE Ball */
 export default class Ball {
 
@@ -14,7 +15,6 @@ export default class Ball {
     this.deltaX = deltaX;
     this.deltaY = deltaY;
     this.image = this.#createImage(ballImgSrc);
-		this.radius = radius;
   }
 
   /* draw this ball, using the given drawing 2d context */
@@ -40,33 +40,28 @@ export default class Ball {
   }
   /* crée l'objet Image à utiliser pour dessiner cette balle */
   #createImage(imageSource) {
-		this.largeur = Ball.BALL_WIDTH;
-  	this.longueur = Ball.BALL_HEIGHT;
 	  const newImg = new Image();
-		newImg.width=this.largeur;
-		newImg.height=this.longueur;
 
   	newImg.src = imageSource;
   	return newImg;
   }
-  getwidth() {
+  get width() {
     return this.image.width;
   }
-  getheight() {
+  get height() {
     return this.image.height;
   }
 
 	collisionWith(obstacle){
 		  let p1x= Math.max(this.x,obstacle.x);
-      let p1y=Math.max(this.y,obstacle.y);
-      let x1 = this.x + this.getwidth();
-      let y1 = this.y + this.getheight();
-      let x2 = obstacle.x + this.getwidth();
-      let y2 = obstacle.y + this.getheight();
-      let p2x= Math.min(x1,x2);
-      let p2y=Math.min(y1,y2);
-
-		  return p1x < p2x && p1y < p2y;
+      let p1y= Math.max(this.y,obstacle.y);
+			let p2x= Math.min(this.x + Ball.BALL_WIDTH, obstacle.x + obstacle.width);
+			let p2y= Math.min(this.y + Ball.BALL_HEIGHT, obstacle.y + obstacle.height);
+			if ((p1x < p2x) && (p1y < p2y)){
+				 return true;
+			 } else{
+				return false;
+			}
   }
 
 
