@@ -9,7 +9,7 @@ export default class Ball {
 	static BALL_WIDTH = 48;
 	static BALL_HEIGHT= 48;
 
-  constructor(x, y, deltaX = 3, deltaY = -2, radius) {
+  constructor(x, y, deltaX = 3, deltaY = -2) {
 		this.x = x;
     this.y = y;
     this.deltaX = deltaX;
