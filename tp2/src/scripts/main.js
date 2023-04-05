@@ -18,7 +18,7 @@ const init = () => {
   // décommenter les deux lignes suivantes à partir la question Ex1 Q4
   const animation = new AnimationWithObstacle(canvas, obstacle);
 
-  const obstacle = new Obstacle(5,3,50,40);
+  const obstacle = new Obstacle(10,10,60,50);
 
   window.addEventListener('keydown', animation.keyDownActionHandler.bind(animation));
   window.addEventListener('keyup', animation.keyUpActionHandler.bind(animation));

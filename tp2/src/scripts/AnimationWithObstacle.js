@@ -8,7 +8,7 @@ export default class AnimationWithObstacle extends Animation {
   /* constructor of the class */
   constructor(canvas) {
     super(canvas);
-    this.obstacle = new Obstacle(5,3,50,40);
+    this.obstacle = new Obstacle(10,10,60,50);
     this.keyManager = new KeyManager();
   }
 
@@ -16,7 +16,7 @@ export default class AnimationWithObstacle extends Animation {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.balls = this.balls.filter(balle=> { balle.move(this.canvas);
         return ! balle.collisionWith(this.obstacle);});
-    this.balle.forEach(balle=>{  balle.draw(this.context);});
+    this.balls.forEach(balle=>{  balle.draw(this.context);});
     this.obstacle.handleMoveKeys(this.keyManager);
     this.obstacle.move(this.canvas);
     this.obstacle.draw(this.context);

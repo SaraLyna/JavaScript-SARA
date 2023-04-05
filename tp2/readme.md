@@ -24,5 +24,7 @@ et qui retourne un entier aléatoire en 0 et n.
 
 ## Exercice 3:
 creation de la classe Obstacle et AnimationWithObstacle .
+et ajout de la méthode collisionWith() dans la classe Ball.
 
 ## Exercice 4:
+gestion des déplacements au clavier grace à la classe KeyManager et quelques nouvelles méthodes ajoutées à la classe Obstacle.
