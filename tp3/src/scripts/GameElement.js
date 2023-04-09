@@ -17,7 +17,7 @@ export default class GameElement {
 		context.drawImage(this.image, this.x, this.y, this.mesure );
   }
 
-	 position (canvas){
+ position (canvas){
     this.mesure= GameElement.WIDTH;
    let x = this.x + this.deltaX;
 	 let y = this.y + this.deltaY;
