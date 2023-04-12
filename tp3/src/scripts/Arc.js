@@ -1,39 +1,63 @@
+import GameElement from "./GameElement";
+import KeyManager from './keyManager';
 import arcSrc from './assets/images/arc.png';
+import Fleche from "./Fleche";
 
 
 /* TYPE Arc */
 export default class Arc extends GameElement{
+     static ARC_WIDTH = 99;
+     static ARC_HEIGHT = 66;
 
-     constructor(arcWidth , arcHeight) {
-       super(x, y,0,0, arcSrc);
-       const x = arcWidth / 2-50 ;
-       const y = arcHeight-100 ;
-       this.arrowCount = 5 ;
-
+     constructor(canvas, x, y) {
+         super(arcSrc,x, y, 0, 0);
+         this.x = (canvas.width - this.width) / 2;
+         this.y = canvas.height - this.height - 10;
+         this.deltaX=0;
+         this.deltaY=0;
      }
 
-     get centerX() {
-     return this.x + this.width / 2 ;
+     moveLeft() {
+         this.deltaX = this.deltaX - 10;
      }
 
-     get bottomY() {
-     return this.y + this.height ;
-    }
+     moveUp() {
+         if (this.y > 100) {
+             this.deltaY = this.deltaY - 10;
+         }
+     }
 
-    updatePosition(keyPressed) {
-    switch(keyPressed) {
-    case "ArrowLeft" : this.deltaX =-10 ;
-      break ;
-    case "ArrowRight" : this.deltaX =10 ;
-      break ;
-    case "ArrowUp" : this.deltaY =-10 ;
-      break ;
-    case "ArrowDown" : this.deltaY =10 ;
-      break ;
-    }
-      if(this.y < 100 ) {
-        this.y = 100 ;
-      }
-    }
+     moveRight() {
+         this.deltaX = this.deltaX + 10;
+     }
+
+     moveDown() {
+         this.deltaY = this.deltaY + 10;
+     }
+
+     stopMoving() {
+         this.deltaX = 0;
+         this.deltaY = 0;
+     }
+
+     move(box) {
+         this.x = Math.max(0, Math.min(box.width - Arc.ARC_WIDTH, this.x + this.deltaX));
+         this.y = Math.max(0, Math.min(box.height - Arc.ARC_HEIGHT, this.y + this.deltaY));
+     }
+
+     handleMoveKeys(keyManager) {
+         this.stopMoving();
+         if (keyManager.left)
+         this.moveLeft();
+         if (keyManager.right)
+         this.moveRight();
+         if (keyManager.up)
+         this.moveUp();
+         if (keyManager.down)
+         this.moveDown();
+     }
+
+
+
 
 }
