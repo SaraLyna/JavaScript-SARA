@@ -1,7 +1,6 @@
 
 /* TYPE GameElement */
 export default class GameElement {
-  static WIDTH = 40;
 
   constructor(ImgSrc,x,y,deltaX=0,deltaY=0) {
         this.x=x;
