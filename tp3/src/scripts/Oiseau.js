@@ -15,7 +15,7 @@ export default class Oiseau extends GameElement{
         this. x = (Math.random() < 0.5) ?  canvas.width + Oiseau.OISEAU_WIDTH : -Oiseau.OISEAU_WIDTH;
         this. y = Math.floor(Math.random() * 300) + 100;
         this. deltaX = (this.x < 0) ? Oiseau.OISEAU_SPEED : -Oiseau.OISEAU_SPEED;
-        this.image = randomIMG();
+        this.image = this.randomIMG();
         this.isOut=false;
 
     }
@@ -27,14 +27,14 @@ export default class Oiseau extends GameElement{
         }
       }
 
-     /* move(canvas) {
+      move(canvas) {
         if (this.sens === "gauche") {
           this.x -= 4;
           if (this.x < -this.width) {
             this.x = canvas.width + Math.random() * 300;
             this.y = Math.random() * (canvas.height - 100) + 100;
             this.sens = "droite";
-            this.image.src = oiseauDroite;
+            this.image.src = oiseauDroiteSrc;
           }
         } else {
           this.x += 4;
@@ -42,17 +42,18 @@ export default class Oiseau extends GameElement{
             this.x = -this.width - Math.random() * 300;
             this.y = Math.random() * (canvas.height - 100) + 100;
             this.sens = "gauche";
-            this.image.src = oiseauGauche;
+            this.image.src = oiseauGaucheSrc;
           }
         }
-      }*/
+      }
 
-
+/**
       move = (canvas) => {
 
         this.x += this.deltaX;
       // this.y += this.deltaY;
     }
+    */
 
    randomIMG() {
   const oiseauGaucheSrc = "./assets/images/oiseau-voleur-gauche-droite.png";

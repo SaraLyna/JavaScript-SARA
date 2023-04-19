@@ -1,4 +1,5 @@
 
+
 /* TYPE GameElement */
 export default class GameElement {
 
@@ -21,6 +22,7 @@ export default class GameElement {
   	newImg.src = imageSource;
   	return newImg;
   }
+   
 
 
   get width() {
