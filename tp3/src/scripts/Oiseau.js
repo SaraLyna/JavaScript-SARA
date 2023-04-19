@@ -15,7 +15,6 @@ export default class Oiseau extends GameElement{
         this. x = (Math.random() < 0.5) ?  canvas.width + Oiseau.OISEAU_WIDTH : -Oiseau.OISEAU_WIDTH;
         this. y = Math.floor(Math.random() * 300) + 100;
         this. deltaX = (this.x < 0) ? Oiseau.OISEAU_SPEED : -Oiseau.OISEAU_SPEED;
-        this.image = this.randomIMG();
         this.isOut=false;
 
     }
