@@ -12,9 +12,9 @@ export default class Oiseau extends GameElement{
 
     constructor(canvas,x,y,deltaX){
         super(oiseauGaucheSrc,oiseauDroiteSrc,x,y,deltaX,0);
-        this. x = (Math.random() < 0.5) ? 500 + Oiseau.OISEAU_WIDTH : -Oiseau.OISEAU_WIDTH;
+        this. x = (Math.random() < 0.5) ?  canvas.width + Oiseau.OISEAU_WIDTH : -Oiseau.OISEAU_WIDTH;
         this. y = Math.floor(Math.random() * 300) + 100;
-        this. deltaX = (x < 0) ? Oiseau.OISEAU_SPEED : -Oiseau.OISEAU_SPEED;
+        this. deltaX = (this.x < 0) ? Oiseau.OISEAU_SPEED : -Oiseau.OISEAU_SPEED;
         this.image = this.randomIMG();
         this.isOut=false;
 
@@ -54,10 +54,15 @@ export default class Oiseau extends GameElement{
       // this.y += this.deltaY;
     }
 
-    randomIMG(){
-        let ImgSrc = [oiseauGaucheSrc,oiseauDroiteSrc];
-        const aleax= Math.floor(Math.random()*(ImgSrc.length));
-        return ImgSrc[aleax];
-      }
+   randomIMG() {
+  const oiseauGaucheSrc = "./assets/images/oiseau-voleur-gauche-droite.png";
+  const oiseauDroiteSrc = "./assets/images/oiseau-voleur-droite-gauche.png";
 
+  if (this.deltaX < 0) {
+    return oiseauGaucheSrc;
+  } else {
+    return oiseauDroiteSrc;
+  }
+
+}
 }
