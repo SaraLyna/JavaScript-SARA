@@ -4,8 +4,6 @@ import GameElement from "./GameElement";
 
 /* TYPE Carquois */
 export default class Carquois extends GameElement{
-
-
   static CARQUOIS_WIDTH = 50;
   static CARQUOIS_HEIGHT = 100;
 

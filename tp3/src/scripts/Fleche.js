@@ -5,9 +5,6 @@ import Arc from './Arc';
 
 /* TYPE Fleche */
 export default class Fleche extends GameElement{
-  static FLECHE_WIDTH = 15;
-  static FLECHE_HEIGHT = 35;
-
 
   constructor(x , y) {
     super(flecheSrc,x,y,0,-8);

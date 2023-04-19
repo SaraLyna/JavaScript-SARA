@@ -6,8 +6,9 @@ import Fleche from "./Fleche";
 
 /* TYPE Arc */
 export default class Arc extends GameElement{
-     static ARC_WIDTH = 99;
-     static ARC_HEIGHT = 66;
+    static ARC_WIDTH = 96;
+    static ARC_HEIGHT = 70;
+
 
      constructor(canvas, x, y) {
          super(arcSrc,x, y, 0, 0);
@@ -55,6 +56,33 @@ export default class Arc extends GameElement{
          this.moveUp();
          if (keyManager.down)
          this.moveDown();
+     }
+
+     load() {
+       this.stock = 5;
+   }
+
+   fireArrow() {
+       if (this.stock > 0 && !this.used) {
+           this.stock--;
+           this.used = true;
+          // return new Fleche(this.x + this.width / 2, this.y);
+          const arrow = new Fleche(this.x + this.width / 2, this.y);
+           this.fleches.push(arrow);
+           return arrow;
+   }
+ }
+
+
+   shootArrow() {
+       if (this.stock > 0) {
+         const arrow = new Fleche(this.x + this.image.width / 2, this.y);
+         this.lastArrow = arrow; // stocker la dernière flèche tirée
+         this.stock--;
+         return arrow;
+       } else {
+         return null;
+       }
      }
 
 

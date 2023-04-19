@@ -4,7 +4,7 @@ import KeyManager from './keyManager';
  import Cible from './Cible';
  import Fleche from './Fleche';
 import Carquois from './Carquois';
-//import Oiseau from './Oiseau.js';
+import Oiseau from './Oiseau.js';
 
 
 /* TYPE Game */
@@ -21,13 +21,12 @@ export default class Game {
       this.keyManager= new KeyManager();
       this.cible = new Cible(canvas.width, canvas.height);
       this.fleche = new Fleche(this.arc.x + 43, this.arc.y - 20);
-      // this.oiseau = new Oiseau(canvas,0,0,4);
-      //  this.oiseaux = [];
-      //
-      //  this.oiseaux.push(this.oiseau);
+      this.oiseau = new Oiseau(canvas,0,0,4);
+      this.oiseaux = [];
+      this.oiseaux.push(this.oiseau);
 
        this.carquois = null;
-      this.animation = null;
+       this.animation = null;
        this.start=false;
 
        this.lastCarquoisTime = 0
@@ -38,11 +37,11 @@ export default class Game {
         }
       }, 1500);
 
-      // this.interval_O = setInterval(() => {
-      //   const alea = Math.random();
-      //   if(alea <= 0.75 && this.start == true)
-      //      this.addOiseau();
-      //   },1000);
+      this.interval_O = setInterval(() => {
+        const alea = Math.random();
+        if(alea <= 0.75 && this.start == true)
+           this.addOiseau();
+        },1000);
 
        this.fleches = [];
 
@@ -52,10 +51,10 @@ export default class Game {
       this.context.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
       this.arc.draw(this.context);
       this.arc.handleMoveKeys(this.keyManager);
-      // this.oiseaux.forEach(a=>{
-      //   a.draw(this.context);
-      //   a.move(this.canvas);
-      // });
+      this.oiseaux.forEach(a=>{
+        a.draw(this.context);
+        a.move(this.canvas);
+      });
 
       this.arc.move(this.#canvas);
      this.cible.draw(this.context);
@@ -158,17 +157,10 @@ export default class Game {
 
 
 
-    // addOiseau(canvas){
-    //   const aleax= Math.floor(Math.random()*(this.canvas.width-Oiseau.OISEAU_WIDTH));
-    //   this.oiseaux.push(new Oiseau(canvas,aleax,0,4));
-    // }
-    //
-    //
-    // addBall(){
-    //   const aleax = Math.floor(Math.random()*(this.canvas.width-Ball.BALL_WIDTH));
-    //   const aleay = Math.floor(Math.random()*(this.canvas.height-Ball.BALL_WIDTH));
-    //   const deltaX= Math.floor(Math.random()*4)+1;
-    //   const deltaY = Math.floor(Math.random()*4)+1;
-    //   this.oiseaux.push(new Oiseau(canvas,aleax , aleay , deltaX , deltaY));
-    // }
-}
+    addOiseau(canvas){
+      const aleax= Math.floor(Math.random()*(this.canvas.width-Oiseau.OISEAU_WIDTH));
+      this.oiseaux.push(new Oiseau(canvas,aleax,0,4));
+    }
+
+
+  }

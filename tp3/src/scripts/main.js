@@ -5,7 +5,7 @@ import Arc from './Arc';
 import Cible from './Cible';
 import Fleche from './Fleche';
 import Carquois from './Carquois';
-//import Oiseau from './Oiseau.js';
+import Oiseau from './Oiseau.js';
 
 
 
