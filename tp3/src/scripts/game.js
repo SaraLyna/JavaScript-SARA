@@ -13,8 +13,11 @@ export default class Game {
     context;
     arc;
     //Object = new Array();
-
+   static fleches = document.getElementById("nbArrows");
+   static score = document.getElementById("score");
     constructor(canvas) {
+  this.score=0;
+      this.life=3;
       this.#canvas = canvas;
       this.context = this.#canvas.getContext('2d');
       this.arc = new Arc(canvas, canvas.width / 2 - 25, canvas.height - 100);
@@ -48,6 +51,8 @@ export default class Game {
     }
 
     animate() {
+Game.fleches.textContent=this.arc.currentArrows;
+     Game.score.textContent=this.score;
       this.context.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
       this.arc.draw(this.context);
       this.arc.handleMoveKeys(this.keyManager);
@@ -94,6 +99,11 @@ export default class Game {
       case "Down":
             this.keyManager.downPressed();
             break;
+
+      case " ":
+              this.fireArrow();
+              break;
+
        default: return;
     }
      event.preventDefault();
@@ -112,11 +122,11 @@ export default class Game {
              break;
           case "ArrowUp":
           case "Up":
-              this.keyManager.upPressed();
+              this.keyManager.upReleased();
               break;
           case "ArrowDown":
           case "Down":
-                this.keyManager.downPressed();
+                this.keyManager.downReleased();
                 break;
           default: return;
        }

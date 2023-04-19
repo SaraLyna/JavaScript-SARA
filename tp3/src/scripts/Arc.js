@@ -11,11 +11,12 @@ export default class Arc extends GameElement{
 
 
      constructor(canvas, x, y) {
-         super(arcSrc,x, y, 0, 0);
+         super(arcSrc,x,y, 10, 10);
          this.x = (canvas.width - this.width) / 2;
          this.y = canvas.height - this.height - 10;
-         this.deltaX=0;
-         this.deltaY=0;
+         this.life=3;
+         this.arrows=5;
+        
      }
 
      moveLeft() {
@@ -58,34 +59,10 @@ export default class Arc extends GameElement{
          this.moveDown();
      }
 
-     load() {
-       this.stock = 5;
-   }
-
-   fireArrow() {
-       if (this.stock > 0 && !this.used) {
-           this.stock--;
-           this.used = true;
-          // return new Fleche(this.x + this.width / 2, this.y);
-          const arrow = new Fleche(this.x + this.width / 2, this.y);
-           this.fleches.push(arrow);
-           return arrow;
-   }
- }
-
-
-   shootArrow() {
-       if (this.stock > 0) {
-         const arrow = new Fleche(this.x + this.image.width / 2, this.y);
-         this.lastArrow = arrow; // stocker la dernière flèche tirée
-         this.stock--;
-         return arrow;
-       } else {
-         return null;
-       }
-     }
-
-
+     removeLife(){
+    if (this.life>0)
+      this.life--;
+  }
 
 
 }
