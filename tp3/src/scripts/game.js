@@ -19,7 +19,7 @@ export default class Game {
       this.context = this.#canvas.getContext('2d');
       this.arc = new Arc(canvas, canvas.width / 2 - 25, canvas.height - 100);
       this.keyManager= new KeyManager();
-      this.cible = new Cible(canvas.width-target.width, canvas.height);
+      this.cible = new Cible(canvas.width, canvas.height);
       this.fleche = new Fleche(this.arc.x + 43, this.arc.y - 20);
       // this.oiseau = new Oiseau(canvas,0,0,4);
       //  this.oiseaux = [];
