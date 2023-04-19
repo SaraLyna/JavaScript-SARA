@@ -11,7 +11,7 @@ export default class Cible extends GameElement{
 
   constructor(x , widthC, heightC) {
     super( cibleSrc,x, 0, 0, 1);
-        this.x = Math.random() * (widthC - (this.width-cibleSrc.width()));
+        this.x = (widthC - this.width));
         this.y = 0;
         this.deltaX=0;
         this.deltaY=1;
