@@ -5,8 +5,8 @@ import oiseauDroiteSrc from "./assets/images/oiseau-voleur-droite-gauche.png";
 
 
 export default class Oiseau extends GameElement{
-    static OISEAU_WIDTH = 80;
-    static OISEAU_HEIGHT = 50;
+    static OISEAU_WIDTH = 30;
+    static OISEAU_HEIGHT = 20;
     static OISEAU_SPEED = 4;
     static OISEAU_PROBABILITY = 0.75;
 
@@ -15,10 +15,15 @@ export default class Oiseau extends GameElement{
         this. x = (Math.random() < 0.5) ?  canvas.width + Oiseau.OISEAU_WIDTH : -Oiseau.OISEAU_WIDTH;
         this. y = Math.floor(Math.random() * 300) + 100;
         this. deltaX = (this.x < 0) ? Oiseau.OISEAU_SPEED : -Oiseau.OISEAU_SPEED;
-        this.image = this.randomIMG();
+        this.image = this.createImage(this.randomIMG());
         this.isOut=false;
 
     }
+    createImage(imageSource) {
+	  const newImg = new Image();
+  	newImg.src = imageSource;
+  	return newImg;
+  }
 
      update(box) {
         super.update(box);
@@ -26,7 +31,7 @@ export default class Oiseau extends GameElement{
           this.isOut = true;
         }
       }
-
+/**
       move(canvas) {
         if (this.sens === "gauche") {
           this.x -= 4;
@@ -47,17 +52,15 @@ export default class Oiseau extends GameElement{
         }
       }
 
-/**
+*/
       move = (canvas) => {
 
         this.x += this.deltaX;
-      // this.y += this.deltaY;
+       //this.y += this.deltaY;
     }
-    */
+    
 
    randomIMG() {
-  const oiseauGaucheSrc = "./assets/images/oiseau-voleur-gauche-droite.png";
-  const oiseauDroiteSrc = "./assets/images/oiseau-voleur-droite-gauche.png";
 
   if (this.deltaX < 0) {
     return oiseauGaucheSrc;

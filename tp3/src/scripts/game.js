@@ -24,7 +24,7 @@ export default class Game {
       this.keyManager= new KeyManager();
       this.cible = new Cible(canvas.width, canvas.height);
       this.fleche = new Fleche(this.arc.x + 43, this.arc.y - 20);
-      this.oiseau = new Oiseau(canvas,0,0,4);
+      this.oiseau = new Oiseau(canvas,0,0,2);
       this.oiseaux = [];
       this.oiseaux.push(this.oiseau);
 
