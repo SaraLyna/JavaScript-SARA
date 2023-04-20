@@ -10,74 +10,143 @@ import Oiseau from './Oiseau.js';
 /* TYPE Game */
 export default class Game {
     #canvas;
-    context;
-    arc;
+
     //Object = new Array();
    static fleches = document.getElementById("nbArrows");
    static score = document.getElementById("score");
-    constructor(canvas) {
-  this.score=0;
-      this.life=3;
-      this.#canvas = canvas;
-      this.context = this.#canvas.getContext('2d');
-      this.arc = new Arc(canvas, canvas.width / 2 - 25, canvas.height - 100);
-      this.keyManager= new KeyManager();
-      this.cible = new Cible(canvas.width, canvas.height);
-      this.fleche = new Fleche(this.arc.x + 43, this.arc.y - 20);
-      this.oiseau = new Oiseau(canvas,0,0,2);
-      this.oiseaux = [];
-      this.oiseaux.push(this.oiseau);
 
-       this.carquois = null;
+    constructor(canvas) {
+     this.keyManager= new KeyManager();
+     
+      this.#canvas = canvas;
+      this.context = canvas.getContext('2d');
+      this.arc=new Arc(this.#canvas);
+      this.cible=new Cible(this.#canvas);
+       this.fleche=new Array();
+      this.carquois=null;
+      this.oiseaux=new Array();
+      this.score=0;
+      this.life=3;
+
        this.animation = null;
        this.start=false;
 
-       this.lastCarquoisTime = 0
-      setInterval(() => {
-        const shouldSpawnCarquois = Math.random() <= 0.5;
-        if (shouldSpawnCarquois) {
-          this.carquois = new Carquois(canvas, 10, 20);
-        }
-      }, 1500);
-
-      this.interval_O = setInterval(() => {
-        const alea = Math.random();
-        if(alea <= 0.75 && this.start == true)
-           this.addOiseau();
-        },1000);
-
-       this.fleches = [];
+      this.quiverInterval=null;
+      this.birdInterval=null;
 
     }
+ get canvas() {
+      return this.#canvas;
+   }
+
+ genereCarquois() {
+     this.quiverInterval = setInterval(() => {
+       if (Math.random() <= 0.5) {
+         this.carquois = new Carquois(this.#canvas);
+       } else {
+         this.carquois = null;
+       }
+     }, 1500);
+   }
+   genereOiseaux(){
+    this.birdInterval = setInterval( () =>{
+      if (Math.random()<=0.75){
+        if (Math.random() <=0.75){
+          this.oiseaux.push(new OiseauGauche (this.#canvas )) ;
+        } 
+        else{
+          this.oiseaux.push(new OiseauDroit (this.#canvas )) ;
+        } 
+      } 
+    } ,1000);
+   } 
+
 
     animate() {
-Game.fleches.textContent=this.arc.currentArrows;
+     Game.fleches.textContent=this.arc.currentArrows;
      Game.score.textContent=this.score;
-      this.context.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
-      this.arc.draw(this.context);
-      this.arc.handleMoveKeys(this.keyManager);
-      this.oiseaux.forEach(a=>{
-        a.draw(this.context);
-        a.move(this.canvas);
-      });
 
-      this.arc.move(this.#canvas);
-     this.cible.draw(this.context);
-     this.fleche.draw(this.context);
-       this.fleche.move(this.#canvas);
-      if (this.carquois !== null) {
-        this.carquois.draw(this.context);
-      }
+
+      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+       this.arc.handleMoveKeys(this.keyManager);
+ this.arc.move(this.#canvas);
+       this.arc.draw(this.context);
+
+ this.cible?.draw(this.context);
+
+   this.carquois?.draw(this.context);
+     
+ if(this.carquois?.collisionWith(this.arc)){
+       this.arc.currentArrows=5;
+       this.carquois=null;
+     }
+ this.fleche.forEach(elt=>elt.move(this.#canvas));
+     this.fleche=this.fleche.filter(elt=>{
+      if (elt.collisionWith(this.cible)){
+        this.score+=1000;
+        this.cible=new Cible(this.#canvas);
+        return false;
+      } 
+      else{
+        return true;
+      } 
+     });
+     this.fleche=this.fleche.filter(elt=>elt.y>0);
+     this.fleche.forEach(elt=>elt.draw(this.context));
+
+ if(this.oiseaux.length >0){
+      this.oiseaux.forEach((elt,i)=>{
+      
+        elt.move(this.#canvas);
+        elt.draw(this.context);
+        if (elt.collisionWith(this.arc)){
+          this.arc = new Arc(this.#canvas);
+          let life= document.getElementById('life-'+(this.life));
+          life.style.display='none';
+          this.life--;
+          this.oiseaux.splice(i,1);
+        } 
+        this.fleche.forEach((a,j) =>{
+          if ( elt.collisionWith (a)){
+            this.oiseaux.splice(i,1) ;
+            this.fleche.splice (j,1) ;
+          } 
+        } );
+        
+      }); 
+
+      this.oiseaux=this.oiseaux.filter(elt  =>elt.x>100|| elt.x<this.canvas.width );
+     } 
+
+
+
+     
       this.animation = requestAnimationFrame(this.animate.bind(this));
     }
 
-    startAndStop() {
-      if (this.animation) {
-        cancelAnimationFrame(this.animation);
-        this.animation = null;
-      } else {
-        this.animate();
+fireArrow(){
+      if(this.arc.currentArrows>0){
+        this.fleche.push(new Arrow(this.arc.getX()+41.5,this.arc.getY()));
+        this.arc.currentArrows--;
       }
+    }
+
+    startAndStop() {
+       if(!this.start){
+          this.animate();
+          this.start=true;
+          this.genereCarquois();
+          this.genereOiseaux() ;
+
+        }
+        else {
+          clearInterval(this.quiverInterval);
+          clearInterval(this.birdInterval);
+          window.cancelAnimationFrame(this.animationRequest);
+          this.start=false;
+          this.quiverInterval=null;
+          this.birdInterval=null;
+        }
     }
 
 
@@ -137,40 +206,9 @@ Game.fleches.textContent=this.arc.currentArrows;
 
 
 
-  load() {
-        this.stock = 5;
-  }
-
-  fireArrow() {
-       if (this.stock > 0 && !this.used) {
-           this.stock--;
-           this.used = true;
-          const arrow = new Fleche(this.x + this.width / 2, this.y);
-           this.fleches.push(arrow);
-      return arrow;
-
-  }
-   }
+ 
 
 
-   shootArrow() {
-       if (this.stock > 0) {
-         const arrow = new Fleche(this.x + this.image.width / 2, this.y);
-         this.lastArrow = arrow;
-         this.stock--;
-         return arrow;
-       } else {
-         return null;
-       }
-     }
-
-
-
-
-    addOiseau(canvas){
-      const aleax= Math.floor(Math.random()*(this.canvas.width-Oiseau.OISEAU_WIDTH));
-      this.oiseaux.push(new Oiseau(canvas,aleax,0,4));
-    }
 
 
   }

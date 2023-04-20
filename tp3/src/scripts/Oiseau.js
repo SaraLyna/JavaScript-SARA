@@ -31,32 +31,9 @@ export default class Oiseau extends GameElement{
           this.isOut = true;
         }
       }
-/**
-      move(canvas) {
-        if (this.sens === "gauche") {
-          this.x -= 4;
-          if (this.x < -this.width) {
-            this.x = canvas.width + Math.random() * 300;
-            this.y = Math.random() * (canvas.height - 100) + 100;
-            this.sens = "droite";
-            this.image.src = oiseauDroiteSrc;
-          }
-        } else {
-          this.x += 4;
-          if (this.x > canvas.width) {
-            this.x = -this.width - Math.random() * 300;
-            this.y = Math.random() * (canvas.height - 100) + 100;
-            this.sens = "gauche";
-            this.image.src = oiseauGaucheSrc;
-          }
-        }
-      }
 
-*/
-      move = (canvas) => {
-
+      move(box) {
         this.x += this.deltaX;
-       //this.y += this.deltaY;
     }
     
 

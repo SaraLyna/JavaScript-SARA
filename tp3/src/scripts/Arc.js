@@ -1,13 +1,14 @@
 import GameElement from "./GameElement";
 import KeyManager from './keyManager';
 import arcSrc from './assets/images/arc.png';
-import Fleche from "./Fleche";
+//import Fleche from "./Fleche";
 
 
 /* TYPE Arc */
 export default class Arc extends GameElement{
     static ARC_WIDTH = 96;
     static ARC_HEIGHT = 70;
+    static ARROWS=5;
 
 
      constructor(canvas, x, y) {

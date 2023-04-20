@@ -1,6 +1,6 @@
 import flecheSrc from './assets/images/fleche.png';
 import GameElement from "./GameElement";
-import Arc from './Arc';
+//import Arc from './Arc';
 
 
 /* TYPE Fleche */
@@ -11,13 +11,14 @@ export default class Fleche extends GameElement{
         this.x = this.x;
         this.y = this.y;
         this.deltaY=-8;
-        this.arc = new Arc(10,10);
-        this.stopMoving();
-        this.stock=5;
-        this.used = false;
-        this.fleches=[];
+       // this.arc = new Arc(10,10);
+       // this.stopMoving();
+       // this.stock=5;
+       // this.used = false;
+       // this.fleches=[];
   }
 
+/**
   fireArrow() {
         if (this.stock > 0 && !this.used) {
             this.stock--;
@@ -73,6 +74,10 @@ export default class Fleche extends GameElement{
         this.y = Math.max(100, Math.min(canvas.height - this.height, this.y + this.deltaY));
 
     }
-
+*/
+  move(box){
+    //this.x = this.x -8;
+    this.y+=this.deltaY
+ }
 
 }

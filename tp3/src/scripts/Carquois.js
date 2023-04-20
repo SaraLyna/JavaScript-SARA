@@ -13,35 +13,13 @@ export default class Carquois extends GameElement{
     }
 
     randomizePosition(canvas) {
-      this.x = Math.random() * (canvas.width - Carquois.CARQUOIS_WIDTH);
-      this.y = 100 + Math.random() * 300;
+      this.x =Math.floor(Math.random()*(canvas.width+27));
+      this.y = Math.floor(Math.random()*(301))+100;
     }
 
 
 
 
-    static spawnRandomly(canvas, carquois) {
-      if (Math.random() > 0.5) {
-        const newCarquois = new Carquois(canvas, carquois.x, carquois.y);
-        return newCarquois;
-      }
-      return carquois;
-    }
-
-
-
-
-    checkCollision(element) {
-      if (
-        this.x < element.x + element.width &&
-        this.x + this.width > element.x &&
-        this.y < element.y + element.height &&
-        this.y + this.height > element.y
-      ) {
-        return true;
-      }
-      return false;
-    }
-
+   
 
 }
