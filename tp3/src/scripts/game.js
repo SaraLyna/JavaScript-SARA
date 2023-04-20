@@ -24,6 +24,7 @@ export default class Game {
       this.cible=new Cible(this.#canvas);
        this.fleche=new Array();
       this.carquois=null;
+ this.oiseau = new Oiseau(canvas,0,0,4);
       this.oiseaux=new Array();
       this.score=0;
       this.life=3;
@@ -33,6 +34,14 @@ export default class Game {
 
       this.quiverInterval=null;
       this.birdInterval=null;
+ this.interval_O = setInterval(() => {
+      const alea = Math.random();
+      if(alea <= 0.75 && this.start == true)
+        console.log('c');
+         this.addOiseau();
+      
+          console.log('cc');
+      },1000);
 
     }
  get canvas() {
@@ -48,18 +57,7 @@ export default class Game {
        }
      }, 1500);
    }
-   genereOiseaux(){
-    this.birdInterval = setInterval( () =>{
-      if (Math.random()<=0.75){
-        if (Math.random() <=0.75){
-          this.oiseaux.push(new Oiseau (this.#canvas )) ;
-        } 
-        else{
-          this.oiseaux.push(new Oiseau (this.#canvas )) ;
-        } 
-      } 
-    } ,1000);
-   } 
+  
 
 
     animate() {
@@ -72,6 +70,10 @@ export default class Game {
  this.arc.move(this.#canvas);
        this.arc.draw(this.context);
 
+ this.oiseaux.forEach(a=>{
+      a.draw(this.context);
+      a.move(this.canvas);
+    });
  this.cible?.draw(this.context);
 
    this.carquois?.draw(this.context);
@@ -148,6 +150,12 @@ fireArrow(){
           this.birdInterval=null;
         }
     }
+ addOiseau(canvas){
+    const aleax= Math.floor(Math.random()*(this.canvas.width-Oiseau.OISEAU_WIDTH));
+    console.log('ccc');
+    this.oiseaux.push(new Oiseau(canvas,aleax,0,4));
+    console.log('ccc');
+  }
 
 
     keyDownActionHandler(event) {

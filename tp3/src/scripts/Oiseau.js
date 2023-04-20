@@ -25,15 +25,18 @@ export default class Oiseau extends GameElement{
   	return newImg;
   }
 
-     update(box) {
+
+    update(box) {
         super.update(box);
         if (this.x < -this.width || this.x > box.width) {
           this.isOut = true;
         }
       }
 
+
       move(box) {
         this.x += this.deltaX;
+       
     }
     
 
