@@ -60,11 +60,11 @@ export default class Game {
 
 genereOiseaux(){
  this.birdInterval = setInterval(() => {
-      if( Math.random() <= 0.75 && this.start == true)
+      if( Math.random() <= 0.75 && this.start == true){
         this.addBird();
       }else{
         this.addBird();
-     },
+     }},
       1000);
     }
 
