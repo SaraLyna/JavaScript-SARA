@@ -13,7 +13,7 @@ export default class Oiseau extends GameElement{
     constructor(canvas){
  let y = Math.floor(Math.random() * 301) + 100;
         super(oiseauGaucheSrc,oiseauDroiteSrc,x,y,4,0);
-      let x = (Math.random() < 0.5) ?  canvas.width + Oiseau.OISEAU_WIDTH : -Oiseau.OISEAU_WIDTH;
+      let x = (Math.random() < 0.5) ?  500 + Oiseau.OISEAU_WIDTH : -Oiseau.OISEAU_WIDTH;
        
       //  this. deltaX = (this.x < 0) ? Oiseau.OISEAU_SPEED : -Oiseau.OISEAU_SPEED;
         this.image = this.createImage(this.randomIMG());
