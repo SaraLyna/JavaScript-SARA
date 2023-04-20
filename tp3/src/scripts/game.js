@@ -11,13 +11,11 @@ import Oiseau from './Oiseau.js';
 export default class Game {
     #canvas;
 
-    //Object = new Array();
    static fleches = document.getElementById("nbArrows");
    static score = document.getElementById("score");
 
     constructor(canvas) {
      this.keyManager= new KeyManager();
-     
       this.#canvas = canvas;
       this.context = canvas.getContext('2d');
       this.arc=new Arc(this.#canvas);
@@ -35,6 +33,7 @@ export default class Game {
       this.quiverInterval=null;
       this.birdInterval=null;
  }
+
  get canvas() {
       return this.#canvas;
    }
@@ -48,21 +47,24 @@ export default class Game {
        }
      }, 1500);
    }
-   addOiseau(canvas){
+
+   /**
+   addBird(canvas){
     const aleax= Math.floor(Math.random()*(this.canvas.width-Oiseau.OISEAU_WIDTH));
     this.oiseaux.push(new Oiseau(this.#canvas,aleax,0,4));
   }
+  */
+
+
 genereOiseaux(){
  this.birdInterval = setInterval(() => {
-      const alea = Math.random();
-      if(alea <= 0.75 && this.start == true)
-        this.oiseaux.push(new Oiseau(this.#canvas,alea,0,4));
+      if( Math.random() <= 0.75 && this.start == true)
+        this.oiseaux.push(new Oiseau(this.#canvas, Math.random(),0,4));
       },1000);
-
     }
 
 
-  
+
 
 
     animate() {
@@ -72,17 +74,18 @@ genereOiseaux(){
 
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
        this.arc.handleMoveKeys(this.keyManager);
- this.arc.move(this.#canvas);
+      this.arc.move(this.#canvas);
        this.arc.draw(this.context);
-
+/**
  this.oiseaux.forEach(a=>{
       a.draw(this.context);
       a.move(this.canvas);
     });
-    
-this.cible.draw(this.context);
+    */
+
+this.cible?.draw(this.context);
    this.carquois?.draw(this.context);
-     
+
  if(this.carquois?.collisionWith(this.arc)){
        this.arc.Arrows=5;
        this.carquois=null;
@@ -93,17 +96,17 @@ this.cible.draw(this.context);
         this.score+=1000;
         this.cible=new Cible(this.#canvas);
         return false;
-      } 
+      }
       else{
         return true;
-      } 
+      }
      });
      this.fleche=this.fleche.filter(elt=>elt.y>0);
      this.fleche.forEach(elt=>elt.draw(this.context));
 
  if(this.oiseaux.length >0){
       this.oiseaux.forEach((elt,i)=>{
-      
+
         elt.move(this.#canvas);
         elt.draw(this.context);
         if (elt.collisionWith(this.arc)){
@@ -112,25 +115,21 @@ this.cible.draw(this.context);
           life.style.display='none';
           this.life--;
           this.oiseaux.splice(i,1);
-        } 
+        }
         this.fleche.forEach((a,j) =>{
           if ( elt.collisionWith (a)){
             this.oiseaux.splice(i,1) ;
             this.fleche.splice (j,1) ;
-          } 
+          }
         } );
-        
-      }); 
+
+      });
 
       this.oiseaux=this.oiseaux.filter(elt  =>elt.x>100|| elt.x<this.canvas.width );
-     } 
-
-
-
-     
+     }      
       this.animation = requestAnimationFrame(this.animate.bind(this));
     }
-   
+
 
 fireArrow(){
       if(this.arc.Arrows>0){
@@ -145,12 +144,10 @@ fireArrow(){
           this.start=true;
           this.genereCarquois();
           this.genereOiseaux() ;
-
-        }
-        else {
+        }else {
           clearInterval(this.quiverInterval);
           clearInterval(this.birdInterval);
-          window.cancelAnimationFrame(this.animationRequest);
+          cancelAnimationFrame(this.animation);
           this.start=false;
           this.quiverInterval=null;
           this.birdInterval=null;
@@ -215,14 +212,6 @@ fireArrow(){
        }
        event.preventDefault();
     }
-
-
-
-
-
- 
-
-
 
 
   }

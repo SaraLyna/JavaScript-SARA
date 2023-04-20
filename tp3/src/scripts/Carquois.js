@@ -4,10 +4,10 @@ import GameElement from "./GameElement";
 
 /* TYPE Carquois */
 export default class Carquois extends GameElement{
-  static CARQUOIS_WIDTH = 50;
-  static CARQUOIS_HEIGHT = 100;
+//  static CARQUOIS_WIDTH = 50;
+//  static CARQUOIS_HEIGHT = 100;
 
-    constructor(canvas, x, y) {
+    constructor(canvas) {
       super(carquoisSrc,x, y, 0, 0);
       this.randomizePosition(canvas);
     }
@@ -20,6 +20,6 @@ export default class Carquois extends GameElement{
 
 
 
-   
+
 
 }

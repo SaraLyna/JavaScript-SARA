@@ -1,7 +1,6 @@
 import GameElement from "./GameElement";
 import KeyManager from './keyManager';
 import arcSrc from './assets/images/arc.png';
-//import Fleche from "./Fleche";
 
 
 /* TYPE Arc */
@@ -17,7 +16,7 @@ export default class Arc extends GameElement{
          this.y = canvas.height - this.height - 10;
          this.life=3;
          this.Arrows=5;
-        
+
      }
 
 getX(){
