@@ -22,7 +22,7 @@ export default class Game {
       this.cible=new Cible(this.#canvas);
        this.fleche=new Array();
       this.carquois=null;
-     // this.oiseau = new Oiseau(canvas,0,0,4);
+      this.oiseau = new Oiseau(canvas,0,0,4);
       this.oiseaux=new Array();
       this.score=0;
       this.life=3;
@@ -48,18 +48,18 @@ export default class Game {
      }, 1500);
    }
 
-   /**
+
    addBird(canvas){
     const aleax= Math.floor(Math.random()*(this.canvas.width-Oiseau.OISEAU_WIDTH));
     this.oiseaux.push(new Oiseau(this.#canvas,aleax,0,4));
   }
-  */
+
 
 
 genereOiseaux(){
  this.birdInterval = setInterval(() => {
       if( Math.random() <= 0.75 && this.start == true)
-        this.oiseaux.push(new Oiseau(this.#canvas, Math.random(),0,4));
+        this.oiseaux.addBird();
       },1000);
     }
 
@@ -70,18 +70,17 @@ genereOiseaux(){
     animate() {
      Game.fleches.textContent=this.arc.Arrows;
      Game.score.textContent=this.score;
-//this.cible.draw(this.context
 
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
        this.arc.handleMoveKeys(this.keyManager);
       this.arc.move(this.#canvas);
        this.arc.draw(this.context);
-/**
+
  this.oiseaux.forEach(a=>{
       a.draw(this.context);
       a.move(this.canvas);
     });
-    */
+
 
 this.cible?.draw(this.context);
    this.carquois?.draw(this.context);
@@ -126,7 +125,7 @@ this.cible?.draw(this.context);
       });
 
       this.oiseaux=this.oiseaux.filter(elt  =>elt.x>100|| elt.x<this.canvas.width );
-     }      
+     }
       this.animation = requestAnimationFrame(this.animate.bind(this));
     }
 
@@ -154,7 +153,7 @@ fireArrow(){
         }
     }
     /**
- addOiseau(canvas){
+ addBird(canvas){
     const aleax= Math.floor(Math.random()*(this.canvas.width-Oiseau.OISEAU_WIDTH));
     this.oiseaux.push(new Oiseau(canvas,aleax,0,4));
   }
