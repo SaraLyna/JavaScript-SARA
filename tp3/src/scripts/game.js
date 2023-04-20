@@ -24,7 +24,7 @@ export default class Game {
       this.carquois=null;
       this.oiseau = new Oiseau(canvas,0,0,4);
       this.oiseaux=new Array();
-      this.oiseaux.push(this.oiseau);
+     // this.oiseaux.push(this.oiseau);
       this.score=0;
       this.life=3;
 
@@ -43,14 +43,17 @@ export default class Game {
      this.quiverInterval = setInterval(() => {
        if (Math.random() <= 0.5) {
          this.carquois = new Carquois(this.#canvas);
-       }
-     }, 1500);
+       }else{
+       this.carquois=null;
+     }}, 
+     1500);
    }
 
 
    addBird(canvas){
-    const aleax= Math.floor(Math.random()*(this.canvas.width-Oiseau.OISEAU_WIDTH));
-    this.oiseaux.push(new Oiseau(this.#canvas,aleax,0,4));
+    const aleax=Math.random();
+     //Math.floor(Math.random()*(this.canvas.width-Oiseau.OISEAU_WIDTH));
+    this.oiseaux.push(new Oiseau(this.#canvas,aleax,4,0));
   }
 
 
@@ -59,7 +62,8 @@ genereOiseaux(){
  this.birdInterval = setInterval(() => {
       if( Math.random() <= 0.75 && this.start == true)
         this.addBird();
-      },1000);
+      },
+      1000);
     }
 
 
@@ -143,12 +147,14 @@ fireArrow(){
           this.genereCarquois();
           this.genereOiseaux() ;
         }else {
+        this.quiverInterval=null;
+          this.birdInterval=null;
           clearInterval(this.quiverInterval);
           clearInterval(this.birdInterval);
           cancelAnimationFrame(this.animation);
           this.start=false;
-          this.quiverInterval=null;
-          this.birdInterval=null;
+          //this.quiverInterval=null;
+          //this.birdInterval=null;
         }
     }
     /**

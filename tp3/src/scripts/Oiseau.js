@@ -17,8 +17,8 @@ export default class Oiseau extends GameElement{
       //  this. deltaX = (this.x < 0) ? Oiseau.OISEAU_SPEED : -Oiseau.OISEAU_SPEED;
         this.image = this.createImage(this.randomIMG());
      this.isOut=false;
-     this.width=80;
-       this.height=50;
+   //  this.width=80;
+    //   this.height=50;
 
     }
     createImage(imageSource) {

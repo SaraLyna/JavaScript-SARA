@@ -8,7 +8,7 @@ export default class Carquois extends GameElement{
 //  static CARQUOIS_HEIGHT = 100;
 
     constructor(canvas) {
-      super(carquoisSrc,x, y, 0, 0);
+      super(carquoisSrc,0,0, 0, 0);
       this.randomizePosition(canvas);
     }
 
