@@ -52,10 +52,10 @@ export default class Game {
     this.birdInterval = setInterval( () =>{
       if (Math.random()<=0.75){
         if (Math.random() <=0.75){
-          this.oiseaux.push(new OiseauGauche (this.#canvas )) ;
+          this.oiseaux.push(new Oiseau (this.#canvas )) ;
         } 
         else{
-          this.oiseaux.push(new OiseauDroit (this.#canvas )) ;
+          this.oiseaux.push(new Oiseau (this.#canvas )) ;
         } 
       } 
     } ,1000);
