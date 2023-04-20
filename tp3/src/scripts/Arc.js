@@ -16,7 +16,7 @@ export default class Arc extends GameElement{
          this.x = (canvas.width - this.width) / 2;
          this.y = canvas.height - this.height - 10;
          this.life=3;
-         this.arrows=5;
+         this.Arrows=5;
         
      }
 

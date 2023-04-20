@@ -24,7 +24,7 @@ export default class Game {
       this.cible=new Cible(this.#canvas);
        this.fleche=new Array();
       this.carquois=null;
- this.oiseau = new Oiseau(canvas,0,0,4);
+      this.oiseau = new Oiseau(canvas,0,0,4);
       this.oiseaux=new Array();
       this.score=0;
       this.life=3;
@@ -34,16 +34,7 @@ export default class Game {
 
       this.quiverInterval=null;
       this.birdInterval=null;
- this.interval_O = setInterval(() => {
-      const alea = Math.random();
-      if(alea <= 0.75 && this.start == true)
-        console.log('c');
-         this.addOiseau();
-      
-          console.log('cc');
-      },1000);
-
-    }
+ }
  get canvas() {
       return this.#canvas;
    }
@@ -57,11 +48,21 @@ export default class Game {
        }
      }, 1500);
    }
+genereOiseaux(){
+ this.interval_O = setInterval(() => {
+      const alea = Math.random();
+      if(alea <= 0.75 && this.start == true)
+         this.addOiseau();
+      },1000);
+
+    }
+
+
   
 
 
     animate() {
-     Game.fleches.textContent=this.arc.currentArrows;
+     Game.fleches.textContent=this.arc.Arrows;
      Game.score.textContent=this.score;
 
 
@@ -79,7 +80,7 @@ export default class Game {
    this.carquois?.draw(this.context);
      
  if(this.carquois?.collisionWith(this.arc)){
-       this.arc.currentArrows=5;
+       this.arc.Arrows=5;
        this.carquois=null;
      }
  this.fleche.forEach(elt=>elt.move(this.#canvas));
@@ -127,9 +128,9 @@ export default class Game {
     }
 
 fireArrow(){
-      if(this.arc.currentArrows>0){
-        this.fleche.push(new Arrow(this.arc.getX()+41.5,this.arc.getY()));
-        this.arc.currentArrows--;
+      if(this.arc.Arrows>0){
+        this.fleche.push(new Fleche(this.arc.getX()+41.5,this.arc.getY()));
+        this.arc.Arrows--;
       }
     }
 
@@ -152,9 +153,7 @@ fireArrow(){
     }
  addOiseau(canvas){
     const aleax= Math.floor(Math.random()*(this.canvas.width-Oiseau.OISEAU_WIDTH));
-    console.log('ccc');
     this.oiseaux.push(new Oiseau(canvas,aleax,0,4));
-    console.log('ccc');
   }
 
 
