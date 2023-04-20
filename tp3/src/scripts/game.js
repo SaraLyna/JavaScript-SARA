@@ -62,7 +62,9 @@ genereOiseaux(){
  this.birdInterval = setInterval(() => {
       if( Math.random() <= 0.75 && this.start == true)
         this.addBird();
-      },
+      }else{
+        this.addBird();
+     },
       1000);
     }
 
@@ -117,6 +119,7 @@ this.cible?.draw(this.context);
           life.style.display='none';
           this.life--;
           this.oiseaux.splice(i,1);
+this.score+=500;
         }
         this.fleche.forEach((a,j) =>{
           if ( elt.collisionWith (a)){
