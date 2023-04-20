@@ -24,6 +24,7 @@ export default class Game {
       this.carquois=null;
       this.oiseau = new Oiseau(canvas,0,0,4);
       this.oiseaux=new Array();
+      this.oiseaux.push(this.oiseau);
       this.score=0;
       this.life=3;
 
@@ -42,8 +43,6 @@ export default class Game {
      this.quiverInterval = setInterval(() => {
        if (Math.random() <= 0.5) {
          this.carquois = new Carquois(this.#canvas);
-       } else {
-         this.carquois = null;
        }
      }, 1500);
    }
