@@ -11,10 +11,10 @@ export default class Oiseau extends GameElement{
     static OISEAU_PROBABILITY = 0.75;
 
     constructor(canvas,x,y,deltaX){
-        super(oiseauGaucheSrc,oiseauDroiteSrc,x,y,deltaX,0);
-        this. x = (Math.random() < 0.5) ?  canvas.width + Oiseau.OISEAU_WIDTH : -Oiseau.OISEAU_WIDTH;
-        this. y = Math.floor(Math.random() * 300) + 100;
-        this. deltaX = (this.x < 0) ? Oiseau.OISEAU_SPEED : -Oiseau.OISEAU_SPEED;
+        super(oiseauGaucheSrc,oiseauDroiteSrc,canvas.width,y,4,0);
+      //  this. x = (Math.random() < 0.5) ?  canvas.width + Oiseau.OISEAU_WIDTH : -Oiseau.OISEAU_WIDTH;
+        this.y = Math.floor(Math.random() * 301) + 100;
+      //  this. deltaX = (this.x < 0) ? Oiseau.OISEAU_SPEED : -Oiseau.OISEAU_SPEED;
         this.image = this.createImage(this.randomIMG());
         this.isOut=false;
 
