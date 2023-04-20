@@ -20,6 +20,14 @@ export default class Arc extends GameElement{
         
      }
 
+getX(){
+    return this.x;
+  }
+  getY(){
+    return this.y;
+  }
+
+
      moveLeft() {
          this.deltaX = this.deltaX - 10;
      }
