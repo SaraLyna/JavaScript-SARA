@@ -16,15 +16,17 @@ ensuite j'ai importé les deux dans ma classe principale ImageApp.
 
 
 # Exo2
+ tout marche très bien
+dont la premiere et deuxieme version du convertisseur
 
 Explications: 
 -Creation des classes :
-ConvertAppV1.jsx: 
+ConvertAppV1.jsx: elle marche très bien
 
-Currency:
+Currency: bien
 
-ConvertAppV2.jsx :
+ConvertAppV2.jsx : bien
 
-ConvertAppV3.jsx :
+ConvertAppV3.jsx : facultative
 
 
