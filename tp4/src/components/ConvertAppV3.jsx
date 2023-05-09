@@ -1,7 +1,7 @@
 import app from '../assets/style/app.css';
 import React from 'react';
-import Currency from './Currency';
-import CurrencyWithInput from './CurrencyWithInput';
+import Currency from './Currency.jsx';
+import CurrencyWithInput from './CurrencyWithInput.jsx';
 import currencies from '../data/currencies';
 
 /*
@@ -41,9 +41,9 @@ export default class ConvertAppV3 extends React.Component {
       <div className="app">
         <h1>Convertisseur de devises</h1>
         <CurrencyWithInput
-          code={currencies[0].code}
-          rate={currencies[0].rate}
-          symbol={currencies[0].symbol}
+          code={currencies.code}
+          rate={currencies.rate}
+          symbol={currencies.symbol}
           euro={parseFloat(euroValue)}
           amountChanged={this.amountChanged}
         />

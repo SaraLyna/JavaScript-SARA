@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import React, { Component } from 'react';
-
 import React from 'react';
+import currency from '../assets/style/currency.css';
+import currencies from '../data/currencies.js';
 
 
-export default class CurrencyWithInput extends Component {
+export default class CurrencyWithInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
