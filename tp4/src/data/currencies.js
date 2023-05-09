@@ -1,4 +1,9 @@
 const currencies = [
+ {
+    code : 'EUR',
+    rate : 1,
+    symbol : '€'
+  },
   {
     code : 'USD',
     rate : 1.19,
@@ -18,12 +23,6 @@ const currencies = [
     code : 'CNY',
     rate : 7.79,
     symbol : '\u5143'
-  },*/
-  /*
-  {
-    code : 'EUR',
-    rate : 1,
-    symbol : '€'
   },*/
 ]
 
