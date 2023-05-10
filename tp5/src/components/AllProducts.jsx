@@ -19,7 +19,7 @@ export default class Products extends React.Component{
     return (
     <div className="productList">
         <h4>Boutique</h4> 
-         <div className="filterZone">
+         <div className="filter">
         <input type="text" placeholder="filtrer les produits" />
         </div> 
          <div className="productsZone">     
