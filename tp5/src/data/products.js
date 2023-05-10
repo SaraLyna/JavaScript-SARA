@@ -6,7 +6,8 @@ const products = [
       description: "un joli nounours marron avec un foulard",
       image: "images/nounours1.jpg",
       price: 35,
-      stock: 5
+      stock: 5,
+    
    },
    {
       id: 2,
