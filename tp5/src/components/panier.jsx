@@ -33,7 +33,7 @@ export default class Panier extends React.Component {
 	  />
 	  
           ))}
-           <button onClick={() => this.props.delete(this.props.product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
+           <button onClick={() => this.props.supprimerDuPanier(this.props.product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
         </div>
         
         <div className="total">
