@@ -30,8 +30,12 @@ export default class Product extends React.Component {
         </div>
          <div className="price">{price}</div>
     
-        <button onClick={() => this.props.ajouter(this.props.product)}><img src={panier} alt="panier" style={{ width: '40px', height: '40px' }} /></button>
-       
+          <img
+                className="button"
+                src={panier}
+                alt="panier"
+                onClick={() => this.props.supprimer(product)}
+              />
       </div>
     );  
   }

@@ -44,9 +44,12 @@ handleQuantiteChange(event) {
                 	onChange={this.handleQuantiteChange}
               />
               </div>	  
-          <img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} />
-           <button onClick={() => this.props.supprimer(product)}> </button>
-        
+           <img
+                className="button"
+                src={poubelle}
+                alt="poubelle"
+                onClick={() => this.props.supprimer(product)}
+              />
         
          </div>
          ))}       
