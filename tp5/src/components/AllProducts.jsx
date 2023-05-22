@@ -13,17 +13,16 @@ export default class Products extends React.Component{
     this.state = {
       products: productsData
     };
-    this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
 
   render() {
-const { products, ajouter, filterText, filterChange } = this.props;
-     const filteredProducts = products.filter(product =>
+const { produits, ajouter, filterText, filterChange } = this.props;
+     const filteredProducts = produits.filter(product =>
       product.name.toLowerCase().includes(filterText.toLowerCase()
  ||
         product.description.toLowerCase().includes(filterText.toLowerCase())
-     );
+     ));
     
     return (
     <div className="productList">
@@ -36,11 +35,11 @@ const { products, ajouter, filterText, filterChange } = this.props;
 	/>
         </div> 
          <div className="productsZone">     
-          {filteredProducts.map((product) => (
+          {produits.map((product) => (
            <Product 
            	key={product.id} 
 		product={product} 
-           	ajouter={ajouterAuPanier}
+           	ajouter={ajouter}
             />
           ))}
         </div>  
