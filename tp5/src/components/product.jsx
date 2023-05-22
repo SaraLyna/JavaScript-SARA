@@ -34,7 +34,7 @@ export default class Product extends React.Component {
                 className="button"
                 src={panier}
                 alt="panier"
-                onClick={() => this.props.supprimer(product)}
+                onClick={() => this.props.ajouter(this.props.product)}
               />
       </div>
     );  
