@@ -30,7 +30,7 @@ export default class Product extends React.Component {
         </div>
          <div className="price">{price}</div>
     
-        <button onClick={() => this.props.ajouter(id)}><img src={panier} alt="panier" style={{ width: '40px', height: '40px' }} /></button>
+        <button onClick={() => this.props.ajouter(this.props.produit)}><img src={panier} alt="panier" style={{ width: '40px', height: '40px' }} /></button>
        
       </div>
     );  
