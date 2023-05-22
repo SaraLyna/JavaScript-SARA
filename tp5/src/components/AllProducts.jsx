@@ -23,7 +23,7 @@ const { produits,ajouter, filterText, filterChange } = this.props;
      ||
         product.description.toLowerCase().includes(filterText.toLowerCase())
      ));
-
+    const displayedProducts = filterText ? filteredProducts : produits;
     return(
     <div className="productList">
         <h4>Boutique</h4> 
@@ -35,7 +35,7 @@ const { produits,ajouter, filterText, filterChange } = this.props;
 	/>
         </div> 
          <div className="productsZone"> 
-	{produits.map((product) => (    
+	{displayedProducts.map((product) => (    
            <Product 
            	key={product.id} 
 		product={product} 
