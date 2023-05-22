@@ -19,6 +19,7 @@ export default class App extends React.Component {
     };
     this.ajouterAuPanier = this.ajouterAuPanier.bind(this);
     this.supprimerDuPanier = this.supprimerDuPanier.bind(this);
+    this.modifierQuantite = this.modifierQuantite.bind(this);
   }
 
    componentDidMount() {
@@ -61,6 +62,32 @@ export default class App extends React.Component {
     newProduitsBoutique[produitBoutiqueIndex].stock += produit.stock;
     this.setState({ produitsBoutique: newProduitsBoutique });
     }
+
+   modifierQuantite(produitId, quantite) {
+    this.setState((prevState) => {
+      const produitsPanier = prevState.produitsPanier.map((produit) => {
+        if (produit.id === produitId) {
+          const stockDiff = quantite - produit.stock;
+          produit.stock -= stockDiff;
+          produit.stock = quantite;
+        }
+        return produit;
+      });
+
+      const produitsBoutique = productsData.map((produit) => {
+      const produitPanier = produitsPanier.find((p) => p.id === produit.id);
+      if (produitPanier) {
+        produit.stock = produit.stock + produitPanier.stock;
+      } else {
+        produit.stock = produit.stock;
+      }
+      return produit;
+    });
+
+    return { produitsPanier, produitsBoutique };
+    });
+  }
+
 
     calculerPrixTotal() {
     const { produitsPanier } = this.state;
