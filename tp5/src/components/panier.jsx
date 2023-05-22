@@ -17,7 +17,7 @@ this.handleQuantiteChange = this.handleQuantiteChange.bind(this);
 handleQuantiteChange(event, produitId) {
     const newQuantite = parseInt(event.target.value, 10);
     if (!isNaN(newQuantite) && newQuantite >= 0) {
-      this.props.modifierQuantite(produitId, newQuantite);
+      this.props.modifierQuantite(newQuantite);
     }
   }
 
@@ -25,7 +25,9 @@ handleQuantiteChange(event, produitId) {
   const { produits, prixTotal, poidsTotal } = this.props;
   return(
    <div className="cart">
+    <dic className="weight"> 
      <h11>poids total {poidsTotal} g</h11> 
+    </div>
      <div id="panier">
         <h4>Panier</h4>
  
@@ -54,7 +56,7 @@ handleQuantiteChange(event, produitId) {
          ))}       
          </div>
         <div className="total">
-        <h8>total commande :{prixTotal} $</h8>
+        <h8>total commande :{prixTotal} €</h8>
          </div>
       </div>
    );

@@ -67,12 +67,12 @@ export default class App extends React.Component {
     this.setState({ produitsBoutique: newProduitsBoutique });
     }
 
-   modifierQuantite( quantite) {
+   modifierQuantite( stock) {
     const produitId = produit.id;
     this.setState((prevState) => {
       const produitsPanier = prevState.produitsPanier.map((produit) => {
         if (produit.id === produitId) {
-          const stockDiff = quantite - produit.stock;
+          const stockDiff = stock - produit.stock;
           produit.stock += stockDiff;
         }
         return produit;
