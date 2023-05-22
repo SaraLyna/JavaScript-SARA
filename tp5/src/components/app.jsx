@@ -123,7 +123,7 @@ export default class App extends React.Component {
          />
         <Panier 
           supprimer={this.supprimerDuPanier}
-          quantityChange={this.modifierQuantite}
+          modifierQuantite={this.modifierQuantite}
           produits={produitsPanier}
           prixTotal={this.calculerPrixTotal()}
           poidsTotal={this.calculerPoidsTotal()}
