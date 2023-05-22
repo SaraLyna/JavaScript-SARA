@@ -120,7 +120,6 @@ export default class App extends React.Component {
     return (
       <div>
         <Products 
- product={produit}
 	produits={produitsFiltres}
           ajouter={this.ajouterAuPanier}
 	filterChange={this.filterChanged} 
