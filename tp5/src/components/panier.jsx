@@ -33,23 +33,24 @@ handleQuantiteChange(event) {
        
           {produits.map((product) => (
          <div  key={product.id}>
+         <div className="product">
          <div className="info">
-              <img src={product.image} alt={product.name} />
-              <div>qté {product.stock}</div>
-            </div>
-
-            <div className="stock">
+              <img src={product.image} alt={product.name} style={{width: '20px', height: '20px' }}  />
+              <div> {product.name} </div>
+              <div>qté 
               <input
                 type="number"
                 min="0"
                 value={product.stock}
                 onChange={this.handleQuantiteChange}
               />
-            </div>
-	  
+              </div>	  
            <button onClick={() => this.props.supprimer(product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
         </div>
-         ))}
+         </div>
+          </div>
+         ))}       
+        
          </div>
         <div className="total">
         <h8>total commande :{prixTotal} $</h8>
