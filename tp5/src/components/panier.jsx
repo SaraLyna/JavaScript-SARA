@@ -14,11 +14,10 @@ this.handleQuantiteChange = this.handleQuantiteChange.bind(this);
   }
 
 
-handleQuantiteChange(event) {
+handleQuantiteChange(event, produitId) {
     const newQuantite = parseInt(event.target.value, 10);
     if (!isNaN(newQuantite) && newQuantite >= 0) {
-      const { product}=this.props;
-      this.props.modifierQuantite(product.id, newQuantite);
+      this.props.modifierQuantite(produitId, newQuantite);
     }
   }
 
@@ -41,7 +40,7 @@ handleQuantiteChange(event) {
                		 type="number"
                 	min="0"
                 	value={product.stock}
-                	onChange={this.handleQuantiteChange}
+                	onChange={(event) => this.handleQuantiteChange(event, produit.id)}
               />
               </div>	  
            <img

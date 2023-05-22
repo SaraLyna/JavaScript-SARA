@@ -20,7 +20,7 @@ export default class App extends React.Component {
     };
     this.ajouterAuPanier = this.ajouterAuPanier.bind(this);
     this.supprimerDuPanier = this.supprimerDuPanier.bind(this);
-    this.modifierQuantite = this.modifierQuantite.bind(this);
+    this.modifierQuantite = this.modifierQuantite.bind(this,produit.id);
     this.filterChanged = this.filterChanged.bind(this);
   }
 
@@ -63,7 +63,8 @@ export default class App extends React.Component {
     this.setState({ produitsBoutique: newProduitsBoutique });
     }
 
-   modifierQuantite( quantite) {
+   modifierQuantite( quantite,produitId) {
+    const produitId = produit.id;
     this.setState((prevState) => {
       const produitsPanier = prevState.produitsPanier.map((produit) => {
         if (produit.id === produitId) {
