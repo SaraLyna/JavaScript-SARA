@@ -17,7 +17,7 @@ this.handleQuantiteChange = this.handleQuantiteChange.bind(this);
 handleQuantiteChange(event, produitId) {
     const newQuantite = parseInt(event.target.value, 10);
     if (!isNaN(newQuantite) && newQuantite >= 0) {
-      this.props.modifierQuantite(newQuantite);
+      this.props.modifierQuantite(produitId, newQuantite);
     }
   }
 
@@ -26,13 +26,13 @@ handleQuantiteChange(event, produitId) {
   return(
    <div className="cart">
     <div className="weight"> 
-     <h11>poids total {poidsTotal}</h11> 
+     poids total {poidsTotal}
     </div>
      <div id="panier">
         <h4>Panier</h4>
  
           {produits.map((product) => (
-         <div className="product" >
+         <div className="product" key={product.id} >
                 <div> {product.name} </div>
  		<div className="imageProduit">
           		<img src={product.image} alt={name} />
@@ -42,7 +42,7 @@ handleQuantiteChange(event, produitId) {
                		 type="number"
                 	min="0"
                 	value={product.stock}
-                	onChange={(event) => this.handleQuantiteChange(event, produit.id)}
+                	onChange={(event) => this.handleQuantiteChange(event, product.id)}
               />
               </div>	  
            <img
@@ -56,7 +56,7 @@ handleQuantiteChange(event, produitId) {
          ))}       
          </div>
         <div className="total">
-        <h8>total commande :{prixTotal} €</h8>
+        total commande :{prixTotal} €
          </div>
       </div>
    );
