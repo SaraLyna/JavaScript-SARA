@@ -46,7 +46,9 @@ export default class App extends React.Component {
 
     const newProduitsBoutique = [...produitsBoutique];
     const produitBoutiqueIndex = newProduitsBoutique.findIndex((prod) => prod.id === produit.id);
+    if (newProduitsBoutique[produitBoutiqueIndex].stock > 0) {
     newProduitsBoutique[produitBoutiqueIndex].stock -= 1;
+  }
     this.setState({ produitsBoutique: newProduitsBoutique });
   }
 
@@ -59,7 +61,9 @@ export default class App extends React.Component {
 
     const newProduitsBoutique = [...produitsBoutique];
     const produitBoutiqueIndex = newProduitsBoutique.findIndex((prod) => prod.id === produit.id);
-    newProduitsBoutique[produitBoutiqueIndex].stock += produit.stock;
+     if (newProduitsBoutique[produitBoutiqueIndex].stock >= 0) {
+      newProduitsBoutique[produitBoutiqueIndex].stock += produit.stock;
+     }
     this.setState({ produitsBoutique: newProduitsBoutique });
     }
 
