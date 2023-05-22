@@ -38,15 +38,15 @@ handleQuantiteChange(event) {
            	supprimer={this.props.supprimer}     	
            	
 	  />
-          <div className="stock">
-          qté {stock}
+          <div stock={product.stock}>
+           {stock}
           <input
             type="number"
             min="0"
             value={this.props.product.stock}
             onChange={this.handleQuantiteChange}
           />
-
+</div>
 	  
            <button onClick={() => this.props.supprimer(product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
         </div>
