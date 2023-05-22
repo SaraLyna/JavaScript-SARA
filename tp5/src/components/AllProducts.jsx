@@ -16,13 +16,13 @@ export default class Products extends React.Component{
     this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
-  handleFilterChange(event) {
-    this.setState({ filterText: event.target.value });
-  }
 
   render() {
-     const filteredProducts = this.state.products.filter(product =>
-      product.name.toLowerCase().includes(this.props.filterText.toLowerCase())
+const { products, ajouter, filterText, filterChange } = this.props;
+     const filteredProducts = products.filter(product =>
+      product.name.toLowerCase().includes(filterText.toLowerCase()
+ ||
+        product.description.toLowerCase().includes(filterText.toLowerCase())
      );
     
     return (
@@ -31,8 +31,8 @@ export default class Products extends React.Component{
          <div className="filter">
         <input type="text" 
 	       placeholder="filtrer les produits" 
-	       value={this.props.filterText}
-               onChange={this.handleFilterChange}
+	       value={filterText}
+               onChange={(e) => filterChange(e.target.value)}
 	/>
         </div> 
          <div className="productsZone">     
@@ -40,7 +40,7 @@ export default class Products extends React.Component{
            <Product 
            	key={product.id} 
 		product={product} 
-           	ajouter={this.props.ajouterAuPanier}
+           	ajouter={ajouterAuPanier}
             />
           ))}
         </div>  
