@@ -25,8 +25,8 @@ handleQuantiteChange(event, produitId) {
   const { produits, prixTotal, poidsTotal } = this.props;
   return(
    <div className="cart">
-    <dic className="weight"> 
-     <h11>poids total {poidsTotal} g</h11> 
+    <div className="weight"> 
+     <h11>poids total {poidsTotal}</h11> 
     </div>
      <div id="panier">
         <h4>Panier</h4>
