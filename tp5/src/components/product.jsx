@@ -2,10 +2,12 @@ import React from 'react';
 import '../assets/style/product.css';
 import panier from '../assets/images/panier.jpg';
 
+
+
 export default class Product extends React.Component {
   constructor(props) {
     super(props);
-this.handleQuantiteChange = this.handleQuantiteChange.bind(this);
+    this.handleQuantiteChange = this.handleQuantiteChange.bind(this);
   }
 
   handleQuantiteChange(event) {
@@ -30,8 +32,6 @@ this.handleQuantiteChange = this.handleQuantiteChange.bind(this);
         <div className="imageProduit">
           <img src={image} alt={name} />
         </div>
-         //<div className="stock">qté {stock}</div>
-        <div className="price">{price}</div>
          <div className="stock">
           qté {stock}
           <input
@@ -41,8 +41,9 @@ this.handleQuantiteChange = this.handleQuantiteChange.bind(this);
             onChange={this.handleQuantiteChange}
           />
         </div>
+         <div className="price">{price}</div>
       
-        <button onClick={() => this.props.supprimer(this.props.product)}><img src={panier} alt="panier" style={{ width: '40px', height: '40px' }} /></button>
+        <button onClick={() => this.props.add(this.props.product)}><img src={panier} alt="panier" style={{ width: '40px', height: '40px' }} /></button>
         
       </div>
     );  

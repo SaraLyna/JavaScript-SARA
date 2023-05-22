@@ -5,13 +5,14 @@ import '../assets/style/productList.css';
 import Panier from './panier.jsx';
 import App from './app.jsx';
 
+
 export default class Products extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
       products: productsData
     };
-this.handleFilterChange = this.handleFilterChange.bind(this);
+    this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
   handleFilterChange(event) {
@@ -19,9 +20,10 @@ this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
   render() {
- const filteredProducts = this.state.products.filter(product =>
+     const filteredProducts = this.state.products.filter(product =>
       product.name.toLowerCase().includes(this.props.filterText.toLowerCase())
-    );
+     );
+    
     return (
     <div className="productList">
         <h4>Boutique</h4> 
@@ -33,11 +35,11 @@ this.handleFilterChange = this.handleFilterChange.bind(this);
 	/>
         </div> 
          <div className="productsZone">     
-          {filteredProducts..map((product) => (
+          {filteredProducts.map((product) => (
            <Product 
            	key={product.id} 
 		product={product} 
-           	ajouter={this.props.ajouter}
+           	ajouter={this.props.ajouterAuPanier}
             />
           ))}
         </div>  

@@ -6,17 +6,17 @@ import Product from './product.jsx';
 import poubelle from '../assets/images/poubelle.jpg';
 
 
+
 export default class Panier extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       products:  []
-      //this.props.products ||
     };
   }
 
   render() {
- const { produits, prixTotal, poidsTotal } = this.props;
+  const { produits, prixTotal, poidsTotal } = this.props;
   return(
    <div className="cart">
      <div id="panier">
@@ -27,12 +27,12 @@ export default class Panier extends React.Component {
            <Product 
 		key={product.id} 
 		product={product}
-           	supprimer={this.props.supprimer} 
-		/>
+           	supprimer={this.props.supprimerDuPanier} 
+	  />
           ))}
           
         </div>
-      //  <button onClick={() => this.props.supp(this.props.product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
+        <button onClick={() => this.props.supprimerDuPanier(this.props.product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
         
         <div className="total">
         <h8>total commande :{prixTotal}</h8>
