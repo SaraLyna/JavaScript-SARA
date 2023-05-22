@@ -26,19 +26,26 @@ handleQuantiteChange(event) {
   const { produits, prixTotal, poidsTotal } = this.props;
   return(
    <div className="cart">
-     <h8>Poids total {poidsTotal} g</h8> 
+     <h11>Poids total {poidsTotal} g</h11> 
      <div id="panier">
         <h4>Panier</h4>
  
        
           {produits.map((product) => (
          <div  key={product.id}>
-           <Product 		
-		product={product}
-		
-           	supprimer={this.props.supprimer}     	
-           	
-	  />
+         <div className="info">
+              <img src={product.image} alt={product.name} />
+              <div>qté {product.stock}</div>
+            </div>
+
+            <div className="stock">
+              <input
+                type="number"
+                min="0"
+                value={product.stock}
+                onChange={this.handleQuantiteChange}
+              />
+            </div>
 	  
            <button onClick={() => this.props.supprimer(product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
         </div>
