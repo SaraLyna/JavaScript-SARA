@@ -14,10 +14,11 @@ this.handleQuantiteChange = this.handleQuantiteChange.bind(this);
   }
 
 
-handleQuantiteChange(event, productId) {
+handleQuantiteChange(event) {
     const newQuantite = parseInt(event.target.value, 10);
     if (!isNaN(newQuantite) && newQuantite >= 0) {
-      this.props.modifierQuantite(productId, newQuantite);
+      const { product}=this.props;
+      this.props.modifierQuantite(product.id, newQuantite);
     }
   }
 

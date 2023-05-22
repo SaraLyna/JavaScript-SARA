@@ -63,7 +63,7 @@ export default class App extends React.Component {
     this.setState({ produitsBoutique: newProduitsBoutique });
     }
 
-   modifierQuantite(produitId, quantite) {
+   modifierQuantite( quantite) {
     this.setState((prevState) => {
       const produitsPanier = prevState.produitsPanier.map((produit) => {
         if (produit.id === produitId) {
