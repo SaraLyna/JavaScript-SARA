@@ -16,22 +16,27 @@ export default class Panier extends React.Component {
   }
 
   render() {
+ const { produits, prixTotal, poidsTotal } = this.props;
   return(
    <div className="cart">
      <div id="panier">
         <h4>Panier</h4>
  
        
-          {this.state.products.map((product) => (
-           <Product key={product.id} product={product}
-           supp={this.props.supprimer} />
+          {produits.map((product) => (
+           <Product 
+		key={product.id} 
+		product={product}
+           	supprimer={this.props.supprimer} 
+		/>
           ))}
           
         </div>
-        <button onClick={() => this.props.supp(this.props.product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
+      //  <button onClick={() => this.props.supp(this.props.product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
         
         <div className="total">
-        <h8> total commande : </h8>
+        <h8>total commande :{prixTotal}</h8>
+          <h8>Poids total : {poidsTotal}</h8> 
          </div>
       </div>
    );

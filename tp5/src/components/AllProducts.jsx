@@ -11,22 +11,33 @@ export default class Products extends React.Component{
     this.state = {
       products: productsData
     };
+this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
-  
+  handleFilterChange(event) {
+    this.setState({ filterText: event.target.value });
+  }
 
   render() {
+ const filteredProducts = this.state.products.filter(product =>
+      product.name.toLowerCase().includes(this.props.filterText.toLowerCase())
+    );
     return (
     <div className="productList">
         <h4>Boutique</h4> 
          <div className="filter">
-        <input type="text" placeholder="filtrer les produits" />
+        <input type="text" 
+	       placeholder="filtrer les produits" 
+	       value={this.props.filterText}
+               onChange={this.handleFilterChange}
+	/>
         </div> 
          <div className="productsZone">     
-          {this.state.products.map((product) => (
+          {filteredProducts..map((product) => (
            <Product 
-           	key={product.id} product={product} 
-           	add={this.props.ajouter}
+           	key={product.id} 
+		product={product} 
+           	ajouter={this.props.ajouter}
             />
           ))}
         </div>  
