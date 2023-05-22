@@ -1,6 +1,7 @@
 import React from 'react';
 import '../assets/style/product.css';
 import panier from '../assets/images/panier.jpg';
+import poubelle from '../assets/images/poubelle.jpg';
 
 
 
@@ -44,6 +45,7 @@ export default class Product extends React.Component {
          <div className="price">{price}</div>
       
         <button onClick={() => this.props.add(this.props.product)}><img src={panier} alt="panier" style={{ width: '40px', height: '40px' }} /></button>
+       
         
       </div>
     );  

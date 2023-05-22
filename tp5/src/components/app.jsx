@@ -20,6 +20,7 @@ export default class App extends React.Component {
     this.ajouterAuPanier = this.ajouterAuPanier.bind(this);
     this.supprimerDuPanier = this.supprimerDuPanier.bind(this);
     this.modifierQuantite = this.modifierQuantite.bind(this);
+    this.filterChanged = this.filterChanged.bind(this);
   }
 
    componentDidMount() {
@@ -108,6 +109,9 @@ export default class App extends React.Component {
   }
 
   
+  filterChanged(newFilterText){
+    this.setState({filterText: newFilterText});
+  }
   render() {
  const { produitsPanier, filterText } = this.state;
     const produitsFiltres = productsData.filter(
