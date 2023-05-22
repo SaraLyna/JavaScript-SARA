@@ -15,6 +15,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       produitsPanier: [],
+      produitsBoutique: productsData,
        filterText: ''
     };
     this.ajouterAuPanier = this.ajouterAuPanier.bind(this);
@@ -29,8 +30,8 @@ export default class App extends React.Component {
 
   
    ajouterAuPanier(produit) {
-    const { produitsPanier } = this.state;
-    const produitIndex = produitsPanier.findIndex(prod => prod.id === produit.id);
+    const { produitsPanier, produitsBoutique } = this.state;
+    const produitIndex = produitsPanier.findIndex((prod) => prod.id === produit.id);
 
     if (produitIndex !== -1) {
       const newProduitsPanier = [...produitsPanier];
@@ -42,10 +43,9 @@ export default class App extends React.Component {
         produitsPanier: [...produitsPanier, newProduit]
       });
     }
-    
-    const { produitsBoutique } = this.state;
+
     const newProduitsBoutique = [...produitsBoutique];
-    const produitBoutiqueIndex = newProduitsBoutique.findIndex(prod => prod.id === produit.id);
+    const produitBoutiqueIndex = newProduitsBoutique.findIndex((prod) => prod.id === produit.id);
     newProduitsBoutique[produitBoutiqueIndex].stock -= 1;
     this.setState({ produitsBoutique: newProduitsBoutique });
   }
@@ -53,13 +53,12 @@ export default class App extends React.Component {
 
   
     supprimerDuPanier(produit) {
-    const { produitsPanier } = this.state;
-    const newProduitsPanier = produitsPanier.filter(prod => prod.id !== produit.id);
+    const { produitsPanier, produitsBoutique } = this.state;
+    const newProduitsPanier = produitsPanier.filter((prod) => prod.id !== produit.id);
     this.setState({ produitsPanier: newProduitsPanier });
 
-    const { produitsBoutique } = this.state;
     const newProduitsBoutique = [...produitsBoutique];
-    const produitBoutiqueIndex = newProduitsBoutique.findIndex(prod => prod.id === produit.id);
+    const produitBoutiqueIndex = newProduitsBoutique.findIndex((prod) => prod.id === produit.id);
     newProduitsBoutique[produitBoutiqueIndex].stock += produit.stock;
     this.setState({ produitsBoutique: newProduitsBoutique });
     }
@@ -69,8 +68,7 @@ export default class App extends React.Component {
       const produitsPanier = prevState.produitsPanier.map((produit) => {
         if (produit.id === produitId) {
           const stockDiff = quantite - produit.stock;
-          produit.stock -= stockDiff;
-          produit.stock = quantite;
+          produit.stock += stockDiff;
         }
         return produit;
       });
@@ -78,9 +76,7 @@ export default class App extends React.Component {
       const produitsBoutique = productsData.map((produit) => {
       const produitPanier = produitsPanier.find((p) => p.id === produit.id);
       if (produitPanier) {
-        produit.stock = produit.stock + produitPanier.stock;
-      } else {
-        produit.stock = produit.stock;
+        produit.stock = produit.stock - produitPanier.stock;
       }
       return produit;
     });
@@ -114,18 +110,23 @@ export default class App extends React.Component {
   }
   render() {
  const { produitsPanier, filterText } = this.state;
-    const produitsFiltres = productsData.filter(
+    const produitsFiltres = productsBoutique.filter(
       produit => produit.name.toLowerCase().includes(filterText.toLowerCase())
-    );
+    ||
+        produit.description.toLowerCase().includes(filterText.toLowerCase())
+ );
 
     return (
       <div>
         <Products 
-          ajouter={this.ajouterAuPanier} 
+	produits={produitsFiltres}
+          ajouter={this.ajouterAuPanier}
+	filterChange={this.filterChanged} 
           filterText={filterText} 
          />
         <Panier 
           supprimer={this.supprimerDuPanier}
+          quantityChange={this.modifierQuantite}
           produits={produitsPanier}
           prixTotal={this.calculerPrixTotal()}
           poidsTotal={this.calculerPoidsTotal()}

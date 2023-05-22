@@ -10,9 +10,6 @@ import poubelle from '../assets/images/poubelle.jpg';
 export default class Panier extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      products:  []
-    };
   }
 
   render() {
@@ -28,12 +25,12 @@ export default class Panier extends React.Component {
            <Product 
 		key={product.id} 
 		product={product}
-           	supprimer={this.props.supprimerDuPanier} 
+           	supprimer={this.props.supprimer} 
            	
 	  />
 	  
           ))}
-           <button onClick={() => this.props.supprimerDuPanier(this.props.product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
+           <button onClick={() => this.props.supprimer(product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
         </div>
         
         <div className="total">
