@@ -19,6 +19,7 @@ export default class Panier extends React.Component {
   const { produits, prixTotal, poidsTotal } = this.props;
   return(
    <div className="cart">
+     <h8>Poids total : {poidsTotal}</h8> 
      <div id="panier">
         <h4>Panier</h4>
  
@@ -37,7 +38,6 @@ export default class Panier extends React.Component {
         
         <div className="total">
         <h8>total commande :{prixTotal}</h8>
-          <h8>Poids total : {poidsTotal}</h8> 
          </div>
       </div>
    );
