@@ -22,17 +22,17 @@ export default class Panier extends React.Component {
  
        
           {produits.map((product) => (
-           <Product 
-		key={product.id} 
+         <div  key={product.id} >
+           <Product 		
 		product={product}
-           	supprimer={this.props.supprimer} 
+           	supprimer={this.props.supprimer}     	
            	
 	  />
 	  
-          ))}
            <button onClick={() => this.props.supprimer(product)}><img src={poubelle} alt="poubelle" style={{ width: '40px', height: '40px' }} /></button>
         </div>
-        
+         ))}
+         </div>
         <div className="total">
         <h8>total commande :{prixTotal}</h8>
          </div>

@@ -4,6 +4,7 @@ import productsData from '../data/products.js';
 import '../assets/style/productList.css';
 import Panier from './panier.jsx';
 import App from './app.jsx';
+import panier from '../assets/images/panier.jpg';
 
 
 export default class Products extends React.Component{

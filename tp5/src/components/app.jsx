@@ -108,9 +108,10 @@ export default class App extends React.Component {
   filterChanged(newFilterText){
     this.setState({filterText: newFilterText});
   }
+  
   render() {
  const { produitsPanier, filterText } = this.state;
-    const produitsFiltres = productsBoutique.filter(
+    const produitsFiltres = this.state.produitsBoutique.filter(
       produit => produit.name.toLowerCase().includes(filterText.toLowerCase())
     ||
         produit.description.toLowerCase().includes(filterText.toLowerCase())
